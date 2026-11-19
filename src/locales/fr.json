@@ -1,198 +1,607 @@
 {
-  "header": {
-    "hello": "Bonjour, je suis",
-    "role": "Ingénieur Logiciel IA",
-    "scroll": "Faire défiler vers le bas",
-    "greeting_morning": "Bonjour ☀️",
-    "greeting_afternoon": "Bon après-midi 🌤️",
-    "greeting_evening": "Bonsoir 🌙",
-    "availability": "Ouvert aux opportunités"
+  "meta": {
+    "skip": "Aller au contenu",
+    "progress": "Progression de lecture"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "demo": "Démo live",
+    "experience": "Parcours",
+    "work": "Projets",
+    "skills": "Boîte à outils",
+    "contact": "Contact",
+    "cv": "Retourner la page : mon CV",
+    "theme": "Basculer clair / sombre",
+    "lang": "Langue : français · passer en anglais",
+    "lang_short": "FR"
+  },
+  "intro": {
+    "greetings": [
+      "Bonjour",
+      "Hello",
+      "مرحبا"
+    ],
+    "signature": "Ahmed Amine",
+    "role": "Ingénieur logiciel · Full stack & IA",
+    "skip": "Passer"
+  },
+  "hero": {
+    "greeting_morning": "Bonjour",
+    "greeting_afternoon": "Bon après-midi",
+    "greeting_evening": "Bonsoir",
+    "greeting_night": "Encore debout ?",
+    "here": "il est {{time}} ici à Casablanca",
+    "hi": "Salut, moi c'est",
+    "name_a": "Ahmed Amine",
+    "name_b": "Bouricha",
+    "build": "Je construis",
+    "words": [
+      "des produits qu'on utilise.",
+      "des apps web solides.",
+      "des backends robustes.",
+      "des interfaces fluides.",
+      "une IA vraiment utile.",
+      "des choses qui durent."
+    ],
+    "sub": "Ingénieur logiciel qui transforme des process compliqués et des idées ambitieuses en produits rapides et fiables, avec de l'IA seulement là où elle sert vraiment.",
+    "cta_cv": "Voir mon CV",
+    "cta_work": "Voir mes projets",
+    "status": "Basé à Casablanca · ouvert à de nouveaux défis",
+    "drag": "retourne-moi",
+    "scroll": "Défiler",
+    "front_tag": "Casablanca · MA",
+    "back_tag": "Sur scène · Talk Cursor",
+    "chips": [
+      "Applications web",
+      "API",
+      "E-commerce",
+      "Apps mobiles",
+      "IDP",
+      "Extensions Chrome"
+    ]
   },
   "about": {
-    "title": "À propos de moi",
-    "content": "Salut, je suis ingénieur logiciel, passionné par la création de solutions qui font vraiment la différence. J'utilise des outils d'IA comme Cursor et GitHub Copilot pour booster ma productivité et livrer plus vite sans compromettre la qualité. J'adore les projets qui sortent de l'ordinaire, les idées qui bousculent, et les équipes qui osent innover. Curieux de nature, j'apprends vite et je prends plaisir à transformer chaque défi en opportunité de progresser. Pour moi, la technologie n'a de sens que si elle rapproche les gens et simplifie la vie. Si vous cherchez quelqu'un qui avance avec énergie, qui aime sortir du cadre et qui garde toujours le sourire, alors on est faits pour s'entendre.",
-    "quote": "Je crois sincèrement qu'avec de la passion et de l'engagement, rien n'est impossible dans ce métier.",
-    "funfacts": [
-      "☕ Fan de café",
-      "🚀 Passionné de nouvelles technologies",
-      "🤖 Dev augmenté par l'IA",
-      "🎙️ Tech Speaker"
-    ]
+    "kicker": "À propos",
+    "stats": [
+      {
+        "n": 3,
+        "pre": "~",
+        "suffix": " ans",
+        "label": "à livrer des logiciels en production"
+      },
+      {
+        "n": 12,
+        "pre": "",
+        "suffix": "+",
+        "label": "projets construits, du SaaS au mobile"
+      },
+      {
+        "n": 5,
+        "pre": "",
+        "suffix": "",
+        "label": "entreprises et équipes avec qui j'ai construit"
+      },
+      {
+        "n": 4,
+        "pre": "",
+        "suffix": "",
+        "label": "certifications dont AWS et Google"
+      }
+    ],
+    "lead": {
+      "a": [
+        {
+          "t": "J’adore résoudre des "
+        },
+        {
+          "t": "problèmes",
+          "k": "mess"
+        },
+        {
+          "t": ","
+        }
+      ],
+      "b": [
+        {
+          "t": "et rendre la solution "
+        },
+        {
+          "t": "simple",
+          "k": "ok"
+        },
+        {
+          "t": "."
+        }
+      ]
+    },
+    "body": "J'adopte vite les nouveaux outils, IA comprise, et je porte autant d'attention aux personnes qui utilisent ce que je construis qu'au code derrière.",
+    "notes": [
+      "📍 Casablanca",
+      "AR · FR · EN",
+      "🎙️ speaker tech",
+      "☕ carburant : café",
+      "🧩 accro aux défis"
+    ],
+    "thread": {
+      "mess": "un problème en vrac",
+      "neat": "évident.",
+      "pull": "tire le fil",
+      "aria": "Tirer le fil pour le démêler",
+      "notes": "Quelques mots sur moi"
+    },
+    "question": {
+      "pre": "Au final, une seule question compte :",
+      "items": [
+        "Est-ce que ça marche ?",
+        "Est-ce que les gens s’en servent ?"
+      ]
+    }
+  },
+  "demo": {
+    "kicker": "Démo live",
+    "title": "Regardez un document devenir des réponses.",
+    "sub": "C'est le type de pipeline que je conçois au quotidien : lire le document, extraire ce qui compte avec un score de confiance, puis répondre aux questions en citant la source.",
+    "replay": "Rejouer",
+    "simulated": "Démo simulée · données fictives",
+    "steps": [
+      "Lecture",
+      "Extraction",
+      "Réponse"
+    ],
+    "doc": {
+      "title": "FACTURE",
+      "from": "Atlas Office Supplies",
+      "to": "Facturé à : Nova Logistics",
+      "lines": [
+        [
+          "Chaises ergonomiques × 8",
+          "9 600,00"
+        ],
+        [
+          "Bureaux assis-debout × 2",
+          "2 880,00"
+        ],
+        [
+          "Livraison & installation",
+          "0,00"
+        ]
+      ],
+      "vat": "TVA 20 %"
+    },
+    "fields": [
+      {
+        "k": "fournisseur",
+        "v": "Atlas Office Supplies",
+        "c": 0.99
+      },
+      {
+        "k": "numero_facture",
+        "v": "FA-2026-0412",
+        "c": 0.98
+      },
+      {
+        "k": "date_emission",
+        "v": "2026-09-12",
+        "c": 0.97
+      },
+      {
+        "k": "total_ttc",
+        "v": "14 976,00 MAD",
+        "c": 0.96
+      },
+      {
+        "k": "date_echeance",
+        "v": "2026-10-12",
+        "c": 0.91
+      }
+    ],
+    "q": "Quand cette facture est-elle due, et combien ?",
+    "a": "14 976,00 MAD, à régler avant le 12 octobre 2026.",
+    "source": "facture.pdf · page 1"
+  },
+  "exp": {
+    "kicker": "Parcours",
+    "title": "Là où j'ai construit.",
+    "items": [
+      {
+        "role": "Ingénieur logiciel · Full Stack & Solutions IA",
+        "company": "Xelops Technology",
+        "date": "Fév 2024 — Aujourd'hui",
+        "type": "CDI",
+        "bullets": [
+          "Conception et déploiement de pipelines d'Intelligent Document Processing (IDP) et de solutions RAG avec Qdrant pour automatiser l'extraction de données et la recherche contextuelle.",
+          "Développement et optimisation de microservices backend avec Spring Boot et PostgreSQL, et d'interfaces réactives avec React (Redux/Saga) et Angular.",
+          "Automatisation de pipelines CI/CD de bout en bout avec Azure DevOps, Jenkins et Docker, pour des déploiements plus rapides et des environnements stables.",
+          "Animation de tech talks internes et accompagnement des développeurs juniors sur Spring Boot, React et la qualité du code."
+        ]
+      },
+      {
+        "role": "Développeur Full Stack",
+        "company": "Lymit Labs",
+        "date": "2026",
+        "type": "Temps partiel",
+        "bullets": [
+          "Livraison d'une plateforme e-commerce complète sur mesure pour une marque santé et bien-être : vitrine, tunnel d'achat et back-office d'administration.",
+          "Prix selon le dosage, certificats d'analyse par lot, stock par lot, coupons, remboursements et e-mails de commande automatiques, couverts par des tests de bout en bout."
+        ]
+      },
+      {
+        "role": "Stagiaire ingénieur logiciel",
+        "company": "Neoxia Maroc",
+        "date": "Juil 2023 — Août 2023",
+        "type": "Stage",
+        "bullets": [
+          "Conception et mise en place d'un framework de tests fonctionnels automatisés pour fiabiliser la plateforme.",
+          "Réduction du temps d'exécution des tests et accélération des sprints grâce à l'exécution en parallèle."
+        ]
+      },
+      {
+        "role": "Stagiaire ingénieur logiciel",
+        "company": "Saweblia",
+        "date": "Mai 2023 — Juin 2023",
+        "type": "Stage",
+        "bullets": [
+          "Développement from scratch d'une application web de planification et de gestion de services à domicile : réservations, affectation des intervenants et suivi en direct."
+        ]
+      },
+      {
+        "role": "Stagiaire ingénieur logiciel",
+        "company": "Tekcy",
+        "date": "Avr 2022 — Août 2022",
+        "type": "Stage",
+        "bullets": [
+          "Développement d'une plateforme SaaS multi-tenant qui permet aux restaurants de créer leur site, avec paiement Square et livraison Uber Eats intégrés."
+        ]
+      }
+    ],
+    "ui": {
+      "hint": "suivez le fil ↓",
+      "now": "Aujourd’hui"
+    }
+  },
+  "work": {
+    "kicker": "Projets",
+    "title": "Ce que j'ai construit.",
+    "sub": "Des systèmes en production, des produits livrés de A à Z et les projets qui m'ont le plus appris. Touchez une carte pour l'ouvrir.",
+    "on_request": "Démo sur demande",
+    "confidential": "Confidentiel · en production",
+    "github": "Code source",
+    "live": "Voir en ligne",
+    "open": "Ouvrir le projet",
+    "close": "Fermer",
+    "grab": "Glissez vers le bas pour fermer",
+    "highlights": "Points forts",
+    "stack": "Stack",
+    "items": {
+      "idp": {
+        "kind": "IA appliquée · En production",
+        "title": "IDP — Traitement intelligent de documents",
+        "desc": "Lit factures, contrats et PDF, extrait les champs clés par OCR + LLM avec un score de confiance, et répond aux questions sur les documents avec des réponses sourcées (RAG).",
+        "points": [
+          "Extraction OCR + LLM avec un score de confiance par champ",
+          "Champs incertains envoyés en validation humaine",
+          "Recherche RAG sur les documents avec Qdrant, chaque réponse cite sa source"
+        ]
+      },
+      "lymit": {
+        "kind": "E-commerce · De A à Z",
+        "title": "Lymit Labs",
+        "desc": "Une boutique sur mesure construite de zéro : prix selon le dosage, certificats d'analyse par lot, remises, paiement sécurisé et back-office complet.",
+        "points": [
+          "Prix selon le dosage et stock suivi lot par lot",
+          "Certificat d'analyse attaché à chaque lot",
+          "Coupons, remboursements et e-mails de commande, couverts par des tests E2E"
+        ]
+      },
+      "browsemate": {
+        "kind": "Extension Chrome · Publiée",
+        "title": "BrowseMate",
+        "desc": "Un assistant IA flottant sur n'importe quelle page web. Résumer, reformuler ou poser une question sur ce qu'on lit avec OpenAI, Gemini, Groq et d'autres, avec voix et captures d'écran.",
+        "points": [
+          "Fonctionne sur toutes les pages, sans copier-coller",
+          "Votre modèle au choix : OpenAI, Gemini, Groq…",
+          "Questions à la voix et sur capture d'écran"
+        ]
+      },
+      "nav": {
+        "kind": "Mobile · Données spatiales",
+        "title": "Smart Navigation",
+        "desc": "Une application mobile qui calcule et compare des itinéraires sur des données géographiques réelles avec PostGIS et plusieurs moteurs de routage, sur une architecture microservices.",
+        "points": [
+          "Itinéraires calculés sur de vraies données cartographiques (PostGIS)",
+          "Plusieurs moteurs de routage comparés",
+          "Microservices avec cache Redis, sur Docker & Kubernetes"
+        ]
+      },
+      "resto": {
+        "kind": "SaaS · Multi-tenant",
+        "title": "Plateforme de sites pour restaurants",
+        "desc": "Chaque restaurant obtient son site et son menu en quelques clics, avec paiement en ligne via Square et livraison via Uber Eats.",
+        "points": [
+          "Une plateforme, un site par restaurant",
+          "Paiement en ligne avec Square",
+          "Commandes livrées via Uber Eats"
+        ]
+      },
+      "home": {
+        "kind": "Application web · Opérations",
+        "title": "Planification de services à domicile",
+        "desc": "Réservations, affectation des intervenants et planning de la semaine pour suivre chaque intervention jusqu'à sa clôture.",
+        "points": [
+          "Réservations et affectation des intervenants",
+          "Planning de la semaine",
+          "Suivi en direct jusqu'à la clôture"
+        ]
+      }
+    },
+    "more_title": "Les archives",
+    "more": [
+      {
+        "title": "Hiring Spot",
+        "desc": "Plateforme d'emplois et de stages pour étudiants, avec tests QCM en ligne.",
+        "tech": "React · Spring Boot · Kubernetes · GCP",
+        "link": "https://github.com/Hiring-Spot",
+        "art": "hiring"
+      },
+      {
+        "title": "Easy-Deliver",
+        "desc": "Optimisation des tournées de livraison et estimation des coûts.",
+        "tech": "React Native · Spring Boot · Google Maps",
+        "link": "https://github.com/Easy-Deliver",
+        "art": "deliver"
+      },
+      {
+        "title": "Import-Export RED",
+        "desc": "Gestion des régimes économiques en douane pour un client industriel.",
+        "tech": "Spring Boot · React · MySQL",
+        "link": "https://github.com/ahmedamine12/Import-Export-RED-Project",
+        "art": "red"
+      },
+      {
+        "title": "Curseur à commande vocale",
+        "desc": "Contrôler la souris, les clics et la lecture vidéo à la voix.",
+        "tech": "Python · Reconnaissance vocale",
+        "link": "https://github.com/ahmedamine12/controlling-mousse",
+        "art": "voice"
+      },
+      {
+        "title": "Suivi d'objets par couleur",
+        "desc": "Détecte un objet coloré et sa direction de mouvement en temps réel.",
+        "tech": "Python · OpenCV",
+        "link": "https://github.com/ahmedamine12/detection-of-colors-and-directions",
+        "art": "color"
+      },
+      {
+        "title": "Système expert Covid-19",
+        "desc": "Évaluation d'un possible Covid-19 à partir des symptômes, par règles.",
+        "tech": "Java · Drools · MongoDB",
+        "link": "https://github.com/ahmedamine12/-Test-Covid19",
+        "art": "covid"
+      }
+    ],
+    "more_sub": "Les projets qui m’ont le plus appris. Faites-les défiler.",
+    "archive": {
+      "title": "Projets antérieurs",
+      "hint": "glisse ou lance ↔",
+      "prev": "Projet précédent",
+      "next": "Projet suivant",
+      "open": "Code source"
+    }
   },
   "skills": {
-    "title": "Compétences",
-    "programming": "Langages de programmation",
-    "web": "Technologies web",
-    "devops": "DevOps & Cloud",
-    "databases": "Bases de données",
-    "design": "Conception & Méthodologie",
-    "managerial": "Compétences managériales",
-    "managerial_skills": {
-      "adaptability": "Adaptabilité",
-      "autonomy": "Autonomie",
-      "project_management": "Gestion de projet",
-      "problem_solving": "Résolution de problèmes"
-    }
+    "kicker": "Boîte à outils",
+    "title": "Ce que j'utilise.",
+    "groups": {
+      "ai": "IA",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "data": "Données",
+      "devops": "DevOps",
+      "qa": "Tests"
+    },
+    "keys": {
+      "@ai": "Rendre les documents et le savoir utiles grâce à l’IA.",
+      "@backend": "Le moteur des applis : fiable, rapide, sécurisé.",
+      "@frontend": "La partie que les gens voient et touchent.",
+      "@data": "Là où tout est stocké, en sécurité.",
+      "@devops": "Livrer souvent, sans rien casser.",
+      "@qa": "Prouver que ça marche avant que les utilisateurs ne le découvrent.",
+      "RAG": "Permet à une IA de répondre à partir de vos propres documents, sans inventer.",
+      "IDP": "Transforme des piles de PDF et de scans en données propres. Mon cœur de travail chez Xelops.",
+      "LLMs": "Intégrer les modèles de langage dans de vrais produits, pas juste des démos.",
+      "Embeddings": "Chercher par le sens, pas par les mots exacts.",
+      "Qdrant": "La base vectorielle derrière ma recherche RAG.",
+      "AI agents": "Une IA qui enchaîne les étapes seule : lire, décider, utiliser des outils.",
+      "Java": "Mon premier langage, et toujours celui de tous les jours.",
+      "Spring Boot": "La colonne vertébrale de la plupart des services que j’ai livrés.",
+      "Python": "Pour les pipelines IA, les scripts et les essais rapides.",
+      "FastAPI": "Des API rapides et propres autour des modèles IA.",
+      "REST APIs": "La façon dont mes applis se parlent.",
+      "Microservices": "Découper un gros système en petites briques livrables séparément.",
+      "React": "Mon choix pour des interfaces agréables à utiliser.",
+      "Redux Saga": "Garde les écrans complexes prévisibles.",
+      "Angular": "Pour les grands front-ends d’entreprise.",
+      "Next.js": "React, avec la vitesse et le SEO intégrés.",
+      "TypeScript": "Du JavaScript qui attrape les erreurs avant les utilisateurs.",
+      "PostgreSQL": "Ma base par défaut : fiable et puissante.",
+      "MongoDB": "Pour les données souples, en forme de documents.",
+      "Redis": "Le cache, et tout ce qui doit paraître instantané.",
+      "MySQL": "Le grand classique relationnel.",
+      "AS400": "Oui, le legacy aussi : relier des applis modernes aux systèmes IBM.",
+      "Flyway": "Les évolutions de base, versionnées et sûres.",
+      "Docker": "Même appli, même comportement, partout.",
+      "Kubernetes": "Faire tourner et passer à l’échelle des conteneurs en production.",
+      "Azure DevOps": "Des pipelines qui construisent, testent et déploient à chaque changement.",
+      "Jenkins": "Builds et déploiements automatisés.",
+      "GitLab CI": "Des pipelines juste à côté du code.",
+      "Playwright": "Des tests qui cliquent dans l’appli comme un vrai utilisateur.",
+      "Selenium": "L’automatisation du navigateur pour les tests de bout en bout.",
+      "Cucumber": "Des tests écrits en langage simple, lisibles par toute l’équipe.",
+      "TestNG": "Des suites de tests Java structurées et reproductibles.",
+      "Curiosity": "La touche sur laquelle j’appuie le plus. Nouveaux outils, nouvelles idées, chaque semaine.",
+      "Curiosity_label": "Curiosité"
+    },
+    "idle": "Appuyez sur une touche",
+    "idle_type": "Cliquez une touche, ou tapez directement sur votre clavier.",
+    "idle_tap": "Touchez une touche pour voir à quoi elle me sert."
   },
-  "projects": {
-    "experience": "Projets d'expérience professionnelle",
-    "academic": "Projets personnels",
-    "list": [
+  "more": {
+    "kicker": "Au-delà du code",
+    "title": "Écriture & apprentissage.",
+    "talks_title": "Prise de parole",
+    "talks": "Conférences publiques et webinaires sur le génie logiciel, le Site Reliability Engineering et l'IA, et tech talks internes pour mon équipe.",
+    "article_title": "Écriture",
+    "article": "« L'avenir du SRE : l'intelligence artificielle au service de la fiabilité », sur l'intégration d'outils d'IA dans les workflows SRE.",
+    "edu_title": "Formation",
+    "edu": "Diplôme d'Ingénieur d'État en Génie Logiciel",
+    "edu_place": "FST Mohammedia · 2018 — 2023",
+    "certs_title": "Certifications",
+    "certs": [
       {
-        "title": "Projet client - Xelops Technologies (ex Neoxia Maroc)",
-        "role": "Ingénieur Logiciel | CDI chez Xelops Technologies (ex Neoxia Maroc)",
-        "date": "Mars 2024 - (actuel)",
-        "description": "Développement d'applications web full-stack pour des clients, avec focus sur les technologies modernes et les meilleures pratiques de développement.",
-        "tech": ["React", "Spring Boot", "PostgreSQL", "Docker", "Azure", "Python"]
+        "name": "Generative AI Applications with Amazon Bedrock",
+        "by": "AWS"
       },
       {
-        "title": "Plateforme de gestion digitale des associations",
-        "role": "Ingénieur Logiciel Full Stack | Stage PFE chez Xelops Technologies (ex Neoxia Maroc)",
-        "date": "Février 2023 - (en cours)",
-        "description": "Participation à la mise en œuvre d'une plateforme digitale de gestion d'association, fournissant des outils complets pour la gestion des opérations organisationnelles et des interactions avec les membres.",
-        "tech": ["Spring Boot", "Flyway", "React","PostgreSQL", "Redis", "Jenkins", "Azure"]
+        "name": "Site Reliability Engineering",
+        "by": "Google"
       },
       {
-        "title": "Optimisation des tests fonctionnels automatisés",
-        "role": "Ingénieur Logiciel Full Stack | Stage d'été chez Xelops Technologies (ex Neoxia Maroc)",
-        "date": "Juin 2023 - Juillet 2023",
-        "description": "Conception de tests fonctionnels automatisés avec un accent particulier sur l'optimisation de leur temps d'exécution, garantissant non seulement la précision mais aussi l'efficacité des procédures de test.",
-        "tech": ["Java", "Cucumber", "QAF", "Selenium", "TestNG"]
+        "name": "Project Management Fundamentals",
+        "by": "IBM"
       },
       {
-        "title": "Application web de services d'amélioration de l'habitat",
-        "role": "Ingénieur Logiciel Full Stack | Stage PFA chez Saweblia",
-        "date": "Mai 2023 - Juin 2023",
-        "description": "Création d'une application web qui aide les clients à décrire leurs besoins ou problèmes d'amélioration de l'habitat, puis à planifier leur intervention selon leurs exigences, ainsi que la création d'un gestionnaire pour aider l'administrateur à gérer ces demandes.",
-        "tech": [".NET 6", "Angular", "MySQL"]
-      },
-      {
-        "title": "Générateur de sites web pour chaînes de restaurants",
-        "role": "Ingénieur Logiciel Full Stack | Stage d'été chez Tekcy",
-        "date": "Avril 2022 - Août 2022",
-        "description": "Création d'une application web qui aide les clients à créer facilement des sites web pour leur chaîne de restaurants, ainsi qu'à intégrer divers services externes tels que SQUARE UP et UBER EATS.",
-        "tech": ["Laravel", "Angular", "MySQL"]
+        "name": "Machine Learning Fundamentals",
+        "by": "EdYoda"
       }
     ],
-    "academicList": [
-      {
-        "date": "2025",
-        "role": "Extension Chrome",
-        "title": "EasyAI Chat - Assistant IA",
-        "description": "Assistant IA intégré à n'importe quelle page web. Accédez à OpenAI GPT, Google Gemini et plus encore via une interface de chat flottante élégante, directement dans votre navigateur sans interrompre votre workflow.",
-        "tech": ["JavaScript", "Chrome Extensions API", "OpenAI API", "Gemini API"],
-        "github": "https://github.com/ahmedamine12/Extention_EasyAI_Chat",
-        "demo": "https://chromewebstore.google.com/detail/easyai-chat/ghajibpgpnacjbeglihopdfdapalpgne",
-        "icon": "FaRobot"
-      },
-      {
-        "date": "Janvier 2024 - Février 2024",
-        "role": "Application Web",
-        "title": "Hiring Sport - Plateforme d'emploi étudiant",
-        "description": "Une application qui aide les étudiants à trouver des offres d'emploi ou de stage, à postuler, à s'entraîner sur des QCM, et à passer les QCM des offres partagées.",
-        "tech": ["React", "Spring Boot", "PostgreSQL", "Docker", "Jenkins", "Kubernetes", "Google Cloud"],
-        "github": "https://github.com/Hiring-Spot",
-        "icon": "FaLaptopCode"
-      },
-      {
-        "date": "Novembre 2023 - Janvier 2024",
-        "role": "Application Mobile",
-        "title": "Smart Navigation - Application de navigation micro-services",
-        "description": "Une application de navigation micro-services qui suggère des itinéraires pour atteindre les événements les plus proches, en proposant des détours si plusieurs événements se trouvent sur le trajet principal.",
-        "tech": ["Flutter", "Spring Boot", "PostGIS", "Redis", "MongoDB", "Docker", "Jenkins", "Kubernetes", "Google Cloud"],
-        "github": "https://github.com/Smart-Navigation",
-        "icon": "FaMapMarkedAlt"
-      },
-      {
-        "date": "Janvier 2023 - Février 2023",
-        "role": "Application Web",
-        "title": "Système de gestion Import-Export",
-        "description": "Une application de gestion des importations et exportations dans le cadre des régimes économiques douaniers (RED) pour VINCI ENERGIES MAROC.",
-        "tech": ["Spring Boot", "React", "MySQL"],
-        "github": "https://github.com/ahmedamine12/Import-Export-RED-Project",
-        "icon": "FaDatabase"
-      },
-      {
-        "role": "Application Desktop",
-        "date": "Octobre 2021 - Décembre 2021",
-        "title": "Contrôle du curseur par la voix",
-        "description": "Permet de contrôler le curseur de la souris par commandes vocales, incluant des actions comme clic, double-clic, lecture/pause d'une vidéo et déplacement du curseur.",
-        "tech": ["Python", "speech_recognition", "gui_automation", "numpy"],
-        "github": "https://github.com/ahmedamine12/controlling-mousse",
-        "icon": "FaMousePointer"
-      },
-      {
-        "role": "Application Desktop",
-        "date": "Octobre 2021 - Décembre 2021",
-        "title": "Détection d'objets colorés et de leur direction",
-        "description": "Permet la détection d'objets ayant une couleur spécifique définie par l'utilisateur, ainsi que l'orientation de l'objet en mouvement.",
-        "tech": ["Python", "argparse", "cv2", "imutils", "time", "VideoStream", "numpy"],
-        "github": "https://github.com/ahmedamine12/detection-of-colors-and-directions",
-        "icon": "FaPalette"
-      },
-      {
-        "role": "Application Desktop",
-        "date": "Février 2022 - Mars 2022",
-        "title": "Système expert Covid-19",
-        "description": "Permet de donner la possibilité de présence de la maladie Covid-19 en se basant sur les symptômes de l'utilisateur, ce traitement est réalisé sur un système expert intégré.",
-        "tech": ["Java", "Drools", "MongoDB"],
-        "github": "https://github.com/ahmedamine12/-Test-Covid19",
-        "icon": "FaVirus"
-      },
-      {
-        "title": "Easy-Deliver - Application d'optimisation de livraison",
-        "role": "Application Mobile",
-        "description": "Une application React Native pour optimiser les itinéraires de livraison : calcule le chemin le plus court entre les points de livraison, gère les produits à livrer et estime les coûts de livraison par distance.",
-        "tech": ["React Native", "Spring Boot", "Docker", "PostgreSQL", "Redis", "Google Maps API"],
-        "github": "https://github.com/Easy-Deliver",
-        "icon": "FaMobileAlt"
-      }
-    ]
+    "article_cta": "Lire mon dernier article"
   },
   "contact": {
-    "title": "Contact",
-    "name": "Votre nom complet",
-    "email": "Votre e-mail",
-    "message": "Votre message",
-    "send": "Envoyer le message"
+    "kicker": "Contact",
+    "title_a": "Construisons",
+    "title_b": "quelque chose de remarquable.",
+    "sub": "Une idée, un poste, une question sur le RAG ou juste un café virtuel : ma boîte mail est ouverte.",
+    "copy": "Copier l'e-mail",
+    "copied": "E-mail copié dans le presse-papiers",
+    "write": "M'écrire",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
   },
   "footer": {
-    "copyright": "Tous droits réservés"
+    "made": "Conçu et développé par Ahmed Amine Bouricha",
+    "craft": "React · Framer Motion · des ressorts partout",
+    "time": "Casablanca · {{time}}",
+    "top": "Retour en haut"
   },
-  "download_cv": "Télécharger le CV",
-  "lets_talk": "Discutons",
-  "thankyou_modal": {
-    "title": "Merci d'avoir visité mon portfolio !",
-    "message": "J'apprécie votre temps et votre intérêt. Je suis toujours heureux d'échanger et de collaborer. Passez une excellente journée ! 🎉",
-    "close": "Fermer"
+  "thanks": {
+    "title": "Vous êtes arrivé au bout 🙌",
+    "text": "Merci d'avoir tout parcouru. Ça me fait vraiment plaisir."
   },
-  "welcome_portfolio": "Bienvenue sur mon portfolio !",
-  "toggle_easter_egg": "Je te vois, testeur ! 😏",
-  "typing_intro": [
-    "Salut 👋",
-    "Je suis Bouricha Ahmed Amine 🤓",
-    "Ingénieur Logiciel 💻",
-    "Bienvenue sur mon portfolio !"
-  ],
+  "egg": "Bien joué, vous avez trouvé l'interrupteur secret 🕹️ Mode disco activé.",
   "chatbot": {
-    "title": "Posez-moi une question",
-    "greeting": "Salut ! 👋 Je suis l'assistant virtuel d'Amine. Choisissez une question ci-dessous pour en savoir plus !",
-    "fallback": "Hmm, je n'ai pas encore de réponse pour ça. N'hésitez pas à me contacter directement via la section contact !",
+    "title": "Questions sur Amine",
+    "open": "Ouvrir l'assistant",
+    "close": "Fermer l'assistant",
+    "greeting": "Salut ! 👋 Je suis l'assistant d'Amine. Choisissez une question pour en savoir plus sur lui.",
+    "fallback": "Je n'ai pas encore de réponse à ça. La section contact est le moyen le plus rapide de joindre Amine !",
     "questions": [
-      { "key": "experience", "label": "💼 Quelle est ton expérience ?" },
-      { "key": "tech", "label": "🛠️ Quelles technos utilises-tu ?" },
-      { "key": "availability", "label": "🟢 Es-tu disponible ?" },
-      { "key": "funfact", "label": "🎉 Un fait amusant ?" },
-      { "key": "ai_tools", "label": "🤖 Comment utilises-tu l'IA ?" },
-      { "key": "education", "label": "🎓 Quelle est ta formation ?" }
+      {
+        "key": "experience",
+        "label": "Quelle est ton expérience ?"
+      },
+      {
+        "key": "ai",
+        "label": "Que fais-tu en IA ?"
+      },
+      {
+        "key": "tech",
+        "label": "Quelle est ta stack ?"
+      },
+      {
+        "key": "open",
+        "label": "Es-tu ouvert à de nouveaux projets ?"
+      },
+      {
+        "key": "education",
+        "label": "Quelle est ta formation ?"
+      },
+      {
+        "key": "funfact",
+        "label": "Une anecdote sur toi ?"
+      }
     ],
     "answers": {
-      "experience": "Je suis Ingénieur Logiciel chez Xelops Technologies (ex Neoxia Maroc) depuis mars 2024, développant des applications web full-stack avec React, Spring Boot, PostgreSQL, Docker et Azure. Avant cela, j'ai effectué plusieurs stages en développement full-stack et automatisation de tests.",
-      "tech": "Mon stack principal est React + Spring Boot + PostgreSQL. Je travaille aussi avec Docker, Kubernetes, Azure, Python, Flutter et .NET. Je suis toujours à la recherche de nouveaux outils et frameworks !",
-      "availability": "Je suis actuellement ouvert aux nouvelles opportunités ! N'hésitez pas à me contacter par email ou LinkedIn — je serais ravi de discuter de votre projet.",
-      "funfact": "je suis quelqu’un de fun et plutôt souriant (au bon moment bien sûr) ! Pas comme sur la photo, c’est juste la seule photo pro que j’ai 😊",
-      "ai_tools": "J'utilise des outils d'IA comme Cursor, GitHub Copilot et diverses API LLM pour booster ma productivité. J'ai même créé EasyAI Chat — une extension navigateur qui intègre GPT et Gemini dans n'importe quelle page web !",
-      "education": "Je suis diplômé ingénieur en génie logiciel. Je suis passionné par l'apprentissage continu et je ne cesse de développer mes compétences à travers des projets personnels et des communautés tech."
+      "experience": "Près de 3 ans : ingénieur logiciel chez Xelops Technology depuis février 2024 (full stack + solutions IA), une plateforme e-commerce construite de A à Z pour Lymit Labs, et des stages chez Neoxia, Saweblia et Tekcy.",
+      "ai": "Je conçois des pipelines d'Intelligent Document Processing (extraction OCR + LLM) et des solutions RAG avec la base vectorielle Qdrant, en production. J'ai aussi créé BrowseMate, une extension Chrome qui amène les LLM sur n'importe quelle page web.",
+      "tech": "Java & Spring Boot, Python (FastAPI, Flask), React et Angular, PostgreSQL, Qdrant, Redis, Docker, Kubernetes et Azure DevOps / Jenkins pour le CI/CD.",
+      "open": "Toujours partant pour entendre parler de postes et projets intéressants, surtout autour de l'IA appliquée. La section contact est le moyen le plus rapide de me joindre.",
+      "education": "Diplôme d'Ingénieur d'État en Génie Logiciel (2018–2023), plus des certifications AWS (IA générative avec Bedrock), Google (SRE), IBM et EdYoda.",
+      "funfact": "Je suis plutôt drôle et joyeux d'habitude 😄 La photo ne le montre pas vraiment, c'est juste ma seule photo pro !"
     }
+  },
+  "notes": {
+    "demo": "il lit la facture ↓",
+    "end": "merci de m'avoir lu !"
+  },
+  "stage": {
+    "kicker": "Sur scène",
+    "title": "J'adore une salle pleine.",
+    "sub": "Talks, ateliers et mots d'ouverture. Vous êtes en mode présentateur : utilisez ← →, les boutons, ou glissez.",
+    "next": "Diapo suivante",
+    "notes": "Notes de l'orateur",
+    "prev": "Diapo précédente",
+    "next_btn": "Suivante",
+    "done": "Fin du talk",
+    "hint": "Flèches ← → · glisser · pointeur laser sur la diapo",
+    "end_title": "Merci ! Des questions ?",
+    "end_cta": "Posez-moi vos questions",
+    "end_note": "Garder du temps pour les questions : c'est là que naissent les meilleures discussions.",
+    "slides": {
+      "cursor": {
+        "eyebrow": "Talk · Cursor",
+        "title": "Coder avec une IA en binôme",
+        "sub": "Une session pratique : construire un projet from scratch, puis dompter du code legacy avec Cursor.",
+        "note": "Montrer plutôt qu'expliquer : ouvrir l'éditeur et construire en direct."
+      },
+      "podium": {
+        "eyebrow": "Conférence",
+        "title": "Prendre la parole",
+        "sub": "Partager ce que je construis et ma vision du logiciel, devant un amphi plein.",
+        "note": "Respirer. Ralentir. Raconter l'histoire, pas la stack."
+      },
+      "campus": {
+        "eyebrow": "Étudiants",
+        "title": "Pour les futurs ingénieurs",
+        "sub": "Échanger avec des étudiants sur la carrière, la qualité du code et l'art d'apprendre vite.",
+        "note": "Se rappeler : j'étais assis à leur place il n'y a pas si longtemps."
+      },
+      "opening": {
+        "eyebrow": "Journée CIT",
+        "title": "Ouvrir la journée",
+        "sub": "Le mot d'ouverture de la journée CIT.",
+        "note": "Sourire, accueillir tout le monde, donner le ton de la journée."
+      }
+    }
+  },
+  "flip": {
+    "hint": "Glissez la page pour la retourner",
+    "turn": "Retourner",
+    "download": "Télécharger le PDF",
+    "back": "Retour au site",
+    "alt": "CV d'Ahmed Amine Bouricha"
+  },
+  "card": {
+    "role": "Ingénieur logiciel · Full Stack & IA",
+    "hint": "touchez pour la retourner · glissez-la dans la fente pour garder mon contact",
+    "slot": "Déposez ici pour enregistrer mon contact",
+    "slot_over": "Lâchez pour l'enregistrer",
+    "slot_saved": "Enregistré dans vos contacts",
+    "saved": "Contact enregistré : Ahmed Amine Bouricha",
+    "aria": "Carte de visite : touchez pour la retourner, glissez-la dans la fente ou flèche bas pour enregistrer le contact",
+    "hint_pc": "touchez pour la retourner · lancez-la, elle revient toujours",
+    "qr": "scannez pour garder mon contact",
+    "qr_small": "touchez pour réduire"
   }
-} 
+}

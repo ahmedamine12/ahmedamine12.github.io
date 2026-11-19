@@ -1,198 +1,607 @@
 {
-  "header": {
-    "hello": "Hello, I'm",
-    "role": "AI Software Engineer",
-    "scroll": "Scroll Down",
-    "greeting_morning": "Good morning ☀️",
-    "greeting_afternoon": "Good afternoon 🌤️",
-    "greeting_evening": "Good evening 🌙",
-    "availability": "Open to opportunities"
+  "meta": {
+    "skip": "Skip to content",
+    "progress": "Reading progress"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "demo": "Live demo",
+    "experience": "Journey",
+    "work": "Work",
+    "skills": "Toolbox",
+    "contact": "Contact",
+    "cv": "Turn the page: my CV",
+    "theme": "Switch light / dark",
+    "lang": "Language: English · switch to French",
+    "lang_short": "EN"
+  },
+  "intro": {
+    "greetings": [
+      "Hello",
+      "Bonjour",
+      "مرحبا"
+    ],
+    "signature": "Ahmed Amine",
+    "role": "Software engineer · Full stack & AI",
+    "skip": "Skip"
+  },
+  "hero": {
+    "greeting_morning": "Good morning",
+    "greeting_afternoon": "Good afternoon",
+    "greeting_evening": "Good evening",
+    "greeting_night": "Up late?",
+    "here": "it's {{time}} here in Casablanca",
+    "hi": "Hi, I'm",
+    "name_a": "Ahmed Amine",
+    "name_b": "Bouricha",
+    "build": "I build",
+    "words": [
+      "products people use.",
+      "web apps that scale.",
+      "solid backends.",
+      "interfaces that feel fast.",
+      "AI that's actually useful.",
+      "things that last."
+    ],
+    "sub": "Software engineer who turns messy processes and bold ideas into fast, reliable products, with AI only where it genuinely helps.",
+    "cta_cv": "See my CV",
+    "cta_work": "Explore my work",
+    "status": "Based in Casablanca · open to new challenges",
+    "drag": "turn me over",
+    "scroll": "Scroll",
+    "front_tag": "Casablanca · MA",
+    "back_tag": "On stage · Cursor talk",
+    "chips": [
+      "Web apps",
+      "APIs",
+      "E-commerce",
+      "Mobile apps",
+      "IDP",
+      "Chrome extensions"
+    ]
   },
   "about": {
-    "title": "About Me",
-    "content": "Hi, I'm a software engineer, passionate about creating solutions that truly make a difference. I leverage AI-powered tools like Cursor and GitHub Copilot to boost productivity and ship faster without compromising quality. I love projects that break the mold, ideas that challenge, and teams that dare to innovate. Naturally curious, I learn fast and enjoy turning every challenge into an opportunity to grow. For me, technology only matters if it brings people together and makes life simpler. If you're looking for someone who moves with energy, loves to think outside the box, and always keeps a smile, then we'll get along great.",
-    "quote": "I truly believe that with passion and commitment, nothing is impossible in this field.",
-    "funfacts": [
-      "☕ Coffee lover",
-      "🚀 Loves new tech",
-      "🤖 AI-augmented dev",
-      "🎙️ Tech Speaker"
-    ]
+    "kicker": "About",
+    "stats": [
+      {
+        "n": 3,
+        "pre": "~",
+        "suffix": "",
+        "label": "years shipping production software"
+      },
+      {
+        "n": 12,
+        "pre": "",
+        "suffix": "+",
+        "label": "projects built, from SaaS to mobile"
+      },
+      {
+        "n": 5,
+        "pre": "",
+        "suffix": "",
+        "label": "companies and teams I've built with"
+      },
+      {
+        "n": 4,
+        "pre": "",
+        "suffix": "",
+        "label": "certifications incl. AWS & Google"
+      }
+    ],
+    "lead": {
+      "a": [
+        {
+          "t": "I love solving "
+        },
+        {
+          "t": "problems",
+          "k": "mess"
+        },
+        {
+          "t": ","
+        }
+      ],
+      "b": [
+        {
+          "t": "and making the answer feel "
+        },
+        {
+          "t": "simple",
+          "k": "ok"
+        },
+        {
+          "t": "."
+        }
+      ]
+    },
+    "body": "I pick up new tools fast, AI included, and I care as much about the people using what I build as about the code behind it.",
+    "notes": [
+      "📍 Casablanca",
+      "AR · FR · EN",
+      "🎙️ tech speaker",
+      "☕ runs on coffee",
+      "🧩 loves a good challenge"
+    ],
+    "thread": {
+      "mess": "a messy problem",
+      "neat": "obvious.",
+      "pull": "pull the thread",
+      "aria": "Pull the thread to untangle it",
+      "notes": "A few things about me"
+    },
+    "question": {
+      "pre": "In the end, one question matters:",
+      "items": [
+        "Does it work?",
+        "Do people use it?"
+      ]
+    }
+  },
+  "demo": {
+    "kicker": "Live demo",
+    "title": "Watch a document turn into answers.",
+    "sub": "This is the kind of pipeline I design every day: read the document, extract what matters with a confidence score, then answer questions with the source attached.",
+    "replay": "Replay",
+    "simulated": "Simulated demo · fictional data",
+    "steps": [
+      "Reading",
+      "Extracting",
+      "Answering"
+    ],
+    "doc": {
+      "title": "INVOICE",
+      "from": "Atlas Office Supplies",
+      "to": "Billed to: Nova Logistics",
+      "lines": [
+        [
+          "Ergonomic chairs × 8",
+          "9 600,00"
+        ],
+        [
+          "Standing desks × 2",
+          "2 880,00"
+        ],
+        [
+          "Delivery & setup",
+          "0,00"
+        ]
+      ],
+      "vat": "VAT 20%"
+    },
+    "fields": [
+      {
+        "k": "supplier",
+        "v": "Atlas Office Supplies",
+        "c": 0.99
+      },
+      {
+        "k": "invoice_no",
+        "v": "FA-2026-0412",
+        "c": 0.98
+      },
+      {
+        "k": "issue_date",
+        "v": "2026-09-12",
+        "c": 0.97
+      },
+      {
+        "k": "total_incl_vat",
+        "v": "14 976,00 MAD",
+        "c": 0.96
+      },
+      {
+        "k": "due_date",
+        "v": "2026-10-12",
+        "c": 0.91
+      }
+    ],
+    "q": "When is this invoice due, and how much?",
+    "a": "14 976,00 MAD, due on 12 October 2026.",
+    "source": "invoice.pdf · page 1"
+  },
+  "exp": {
+    "kicker": "Journey",
+    "title": "Where I've been building.",
+    "items": [
+      {
+        "role": "Software Engineer · Full Stack & AI Solutions",
+        "company": "Xelops Technology",
+        "date": "Feb 2024 — Present",
+        "type": "Full-time",
+        "bullets": [
+          "Designed and deployed Intelligent Document Processing (IDP) pipelines and RAG solutions with Qdrant to automate enterprise data extraction and enable contextual search.",
+          "Built and optimized scalable backend microservices with Spring Boot and PostgreSQL, and responsive interfaces with React (Redux/Saga) and Angular.",
+          "Automated end-to-end CI/CD pipelines with Azure DevOps, Jenkins and Docker, cutting deployment times and stabilizing every environment.",
+          "Run internal tech talks and mentor junior developers on Spring Boot, React and code quality."
+        ]
+      },
+      {
+        "role": "Full Stack Developer",
+        "company": "Lymit Labs",
+        "date": "2026",
+        "type": "Part-time",
+        "bullets": [
+          "Delivered a complete custom e-commerce platform for a health & wellness brand: storefront, checkout and a full admin back-office.",
+          "Dosage-based pricing, lab certificates per batch, stock by lot, coupons, refunds and automated order emails, covered by end-to-end tests."
+        ]
+      },
+      {
+        "role": "Software Engineer Intern",
+        "company": "Neoxia Maroc",
+        "date": "Jul 2023 — Aug 2023",
+        "type": "Internship",
+        "bullets": [
+          "Designed and implemented an automated functional testing framework to improve platform reliability.",
+          "Cut test execution time and sped up sprint delivery by introducing parallel test runs."
+        ]
+      },
+      {
+        "role": "Software Engineer Intern",
+        "company": "Saweblia",
+        "date": "May 2023 — Jun 2023",
+        "type": "Internship",
+        "bullets": [
+          "Built from scratch a web application to schedule and manage on-demand home service operations: bookings, technician assignment and live follow-up."
+        ]
+      },
+      {
+        "role": "Software Engineer Intern",
+        "company": "Tekcy",
+        "date": "Apr 2022 — Aug 2022",
+        "type": "Internship",
+        "bullets": [
+          "Developed a multi-tenant SaaS platform that lets restaurants create their own website, with Square payments and Uber Eats delivery integrated."
+        ]
+      }
+    ],
+    "ui": {
+      "hint": "follow the thread ↓",
+      "now": "Now"
+    }
+  },
+  "work": {
+    "kicker": "Selected work",
+    "title": "Things I've built.",
+    "sub": "Production systems, products I shipped on my own, and the projects that taught me the most. Tap a card to open it.",
+    "on_request": "Demo on request",
+    "confidential": "Confidential · production",
+    "github": "Source code",
+    "live": "Open live",
+    "open": "Open project",
+    "close": "Close",
+    "grab": "Swipe down to close",
+    "highlights": "Highlights",
+    "stack": "Stack",
+    "items": {
+      "idp": {
+        "kind": "Applied AI · Production",
+        "title": "IDP — Intelligent Document Processing",
+        "desc": "Reads invoices, contracts and PDFs, extracts the key fields with OCR + LLM and a confidence score, and answers questions about the documents with sourced answers (RAG).",
+        "points": [
+          "OCR + LLM extraction with a confidence score per field",
+          "Low-confidence fields routed to human validation",
+          "RAG search over documents with Qdrant, every answer cites its source"
+        ]
+      },
+      "lymit": {
+        "kind": "E-commerce · Built end to end",
+        "title": "Lymit Labs",
+        "desc": "A custom store built from zero: dosage-based pricing, lab certificates per batch, discounts, secure checkout and a complete admin back-office.",
+        "points": [
+          "Pricing by dosage and stock tracked lot by lot",
+          "Lab certificate attached to every batch",
+          "Coupons, refunds and order emails, covered by end-to-end tests"
+        ]
+      },
+      "browsemate": {
+        "kind": "Chrome extension · Published",
+        "title": "BrowseMate",
+        "desc": "A floating AI assistant on any web page. Summarize, rewrite or ask about what you're reading with OpenAI, Gemini, Groq and more, plus voice and screenshots.",
+        "points": [
+          "Works on any page, no copy-paste",
+          "Bring your own model: OpenAI, Gemini, Groq…",
+          "Voice input and screenshot questions"
+        ]
+      },
+      "nav": {
+        "kind": "Mobile · Spatial data",
+        "title": "Smart Navigation",
+        "desc": "A mobile app that computes and compares routes on real geographic data with PostGIS and several routing engines, backed by microservices.",
+        "points": [
+          "Routes computed on real map data with PostGIS",
+          "Several routing engines compared side by side",
+          "Microservices with Redis caching, on Docker & Kubernetes"
+        ]
+      },
+      "resto": {
+        "kind": "SaaS · Multi-tenant",
+        "title": "Restaurant website platform",
+        "desc": "Every restaurant gets its own site and menu in a few clicks, with online payment through Square and delivery through Uber Eats.",
+        "points": [
+          "One platform, one site per restaurant",
+          "Online payment with Square",
+          "Delivery orders through Uber Eats"
+        ]
+      },
+      "home": {
+        "kind": "Web app · Operations",
+        "title": "Home services planner",
+        "desc": "Bookings, technician assignment and a weekly planning board to follow every home service job until it's closed.",
+        "points": [
+          "Bookings and technician assignment",
+          "Weekly planning board",
+          "Live follow-up until the job is closed"
+        ]
+      }
+    },
+    "more_title": "From the archive",
+    "more": [
+      {
+        "title": "Hiring Spot",
+        "desc": "Student job & internship platform with online MCQ tests.",
+        "tech": "React · Spring Boot · Kubernetes · GCP",
+        "link": "https://github.com/Hiring-Spot",
+        "art": "hiring"
+      },
+      {
+        "title": "Easy-Deliver",
+        "desc": "Delivery route optimization and cost estimation app.",
+        "tech": "React Native · Spring Boot · Google Maps",
+        "link": "https://github.com/Easy-Deliver",
+        "art": "deliver"
+      },
+      {
+        "title": "Import-Export RED",
+        "desc": "Customs economic regimes management for an industrial client.",
+        "tech": "Spring Boot · React · MySQL",
+        "link": "https://github.com/ahmedamine12/Import-Export-RED-Project",
+        "art": "red"
+      },
+      {
+        "title": "Voice-controlled cursor",
+        "desc": "Control the mouse, clicks and video playback with your voice.",
+        "tech": "Python · Speech recognition",
+        "link": "https://github.com/ahmedamine12/controlling-mousse",
+        "art": "voice"
+      },
+      {
+        "title": "Color object tracking",
+        "desc": "Detects a colored object and its direction of movement in real time.",
+        "tech": "Python · OpenCV",
+        "link": "https://github.com/ahmedamine12/detection-of-colors-and-directions",
+        "art": "color"
+      },
+      {
+        "title": "Covid-19 expert system",
+        "desc": "Rule-based assessment of possible Covid-19 from symptoms.",
+        "tech": "Java · Drools · MongoDB",
+        "link": "https://github.com/ahmedamine12/-Test-Covid19",
+        "art": "covid"
+      }
+    ],
+    "more_sub": "The projects that taught me the most. Drag through them.",
+    "archive": {
+      "title": "Earlier projects",
+      "hint": "drag or flick ↔",
+      "prev": "Previous project",
+      "next": "Next project",
+      "open": "Source code"
+    }
   },
   "skills": {
-    "title": "Skills",
-    "programming": "Programming Languages",
-    "web": "Web Technologies",
-    "devops": "DevOps & Cloud",
-    "databases": "Databases",
-    "design": "Design & Methodology",
-    "managerial": "Managerial Skills",
-    "managerial_skills": {
-      "adaptability": "Adaptability",
-      "autonomy": "Autonomy",
-      "project_management": "Project Management",
-      "problem_solving": "Problem Solving"
-    }
+    "kicker": "Toolbox",
+    "title": "What I reach for.",
+    "groups": {
+      "ai": "AI",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "data": "Data",
+      "devops": "DevOps",
+      "qa": "Testing"
+    },
+    "keys": {
+      "@ai": "Making documents and knowledge useful with AI.",
+      "@backend": "The engines behind the apps: reliable, fast, secure.",
+      "@frontend": "The part people see and touch.",
+      "@data": "Where everything is stored, safely.",
+      "@devops": "Shipping often, without breaking things.",
+      "@qa": "Proving it works before users have to.",
+      "RAG": "Lets an AI answer from your own documents instead of guessing.",
+      "IDP": "Turns piles of PDFs and scans into clean, usable data. My main work at Xelops.",
+      "LLMs": "Wiring language models into real products, not just demos.",
+      "Embeddings": "Search by meaning, not by exact words.",
+      "Qdrant": "The vector database behind my RAG search.",
+      "AI agents": "AI that works through steps on its own: reads, decides, uses tools.",
+      "Java": "My first language, and still my daily one.",
+      "Spring Boot": "The backbone of most services I’ve shipped.",
+      "Python": "For AI pipelines, scripts and quick experiments.",
+      "FastAPI": "Fast, clean APIs around AI models.",
+      "REST APIs": "How my apps talk to each other.",
+      "Microservices": "Splitting big systems into small parts that ship on their own.",
+      "React": "My go-to for interfaces people enjoy using.",
+      "Redux Saga": "Keeps complex screens predictable.",
+      "Angular": "For large enterprise front-ends.",
+      "Next.js": "React with speed and SEO built in.",
+      "TypeScript": "JavaScript that catches mistakes before users do.",
+      "PostgreSQL": "My default database: reliable and powerful.",
+      "MongoDB": "For flexible, document-shaped data.",
+      "Redis": "Caching, and anything that has to feel instant.",
+      "MySQL": "The classic relational workhorse.",
+      "AS400": "Yes, legacy too: connecting modern apps to IBM systems.",
+      "Flyway": "Database changes, versioned and safe.",
+      "Docker": "Same app, same behaviour, everywhere.",
+      "Kubernetes": "Running and scaling containers in production.",
+      "Azure DevOps": "Pipelines that build, test and deploy on every change.",
+      "Jenkins": "Automated builds and deployments.",
+      "GitLab CI": "Pipelines living right next to the code.",
+      "Playwright": "Tests that click through the app like a real user.",
+      "Selenium": "Browser automation for end-to-end tests.",
+      "Cucumber": "Tests written in plain language the whole team can read.",
+      "TestNG": "Structured, repeatable Java test suites.",
+      "Curiosity": "The key I press the most. New tools, new ideas, every week.",
+      "Curiosity_label": "Curiosity"
+    },
+    "idle": "Press any key",
+    "idle_type": "Tap a key, or just type on your keyboard.",
+    "idle_tap": "Tap a key to see what I use it for."
   },
-  "projects": {
-    "experience": "Projects from Experience",
-    "academic": "Personal Projects",
-    "list": [
+  "more": {
+    "kicker": "Beyond code",
+    "title": "Writing & learning.",
+    "talks_title": "Speaking",
+    "talks": "Public talks and webinars on software engineering, Site Reliability Engineering and AI, plus internal tech talks for my team.",
+    "article_title": "Writing",
+    "article": "“The future of SRE: AI in service of reliability”, on bringing AI tools into Site Reliability Engineering workflows.",
+    "edu_title": "Education",
+    "edu": "State Engineer's Degree in Software Engineering",
+    "edu_place": "FST Mohammedia · 2018 — 2023",
+    "certs_title": "Certifications",
+    "certs": [
       {
-        "date": "March 2024 - (current)",
-        "role": "Software Engineer | Full Time at Xelops Technologies (ex Neoxia Maroc)",
-        "title": "Client Project - Xelops Technologies (ex Neoxia Maroc)",
-        "description": "Development of full-stack web applications for clients, with focus on modern technologies and development best practices.",
-        "tech": ["React", "Spring Boot", "PostgreSQL", "Docker", "Azure", "Python"]
+        "name": "Generative AI Applications with Amazon Bedrock",
+        "by": "AWS"
       },
       {
-        "date": "February 2023 - (ongoing)",
-        "role": "Full Stack Engineer | PFE Internship at Xelops Technologies (ex Neoxia Maroc)",
-        "title": "Digital Association Management Platform",
-        "description": "Assistance in implementing a digital association management platform, providing comprehensive tools for managing organizational operations and member interactions.",
-        "tech": ["Spring Boot", "Flyway", "React", "PostgreSQL", "Redis", "Jenkins", "Azure"]
+        "name": "Site Reliability Engineering",
+        "by": "Google"
       },
       {
-        "date": "June 2023 - July 2023",
-        "role": "Full Stack Engineer | Summer Internship at Xelops Technologies (ex Neoxia Maroc)",
-        "title": "Automated Functional Testing Optimization",
-        "description": "Design of automated functional tests with particular emphasis on optimizing their execution time, ensuring not only accuracy but also efficiency of testing procedures.",
-        "tech": ["Java", "Cucumber", "QAF", "Selenium", "TestNG"]
+        "name": "Project Management Fundamentals",
+        "by": "IBM"
       },
       {
-        "date": "May 2023 - June 2023",
-        "role": "Full Stack Engineer | PFA Internship at Saweblia",
-        "title": "Home Improvement Services Web Application",
-        "description": "Creation of a web application that helps clients describe their home improvement needs or problems, then schedule their intervention according to their requirements, as well as creating a manager to help the administrator manage these requests.",
-        "tech": [".NET 6", "Angular", "MySQL"]
-      },
-      {
-        "date": "April 2022 - August 2022",
-        "role": "Full Stack Engineer | Summer Internship at Tekcy",
-        "title": "Restaurant Chain Website Generator",
-        "description": "Creation of a web application that helps clients easily create websites for their restaurant chain, as well as integrating various foreign services such as SQUARE UP and UBER EATS.",
-        "tech": ["Laravel", "Angular", "MySQL"]
+        "name": "Machine Learning Fundamentals",
+        "by": "EdYoda"
       }
     ],
-    "academicList": [
-      {
-        "date": "2025",
-        "role": "Chrome Extension",
-        "title": "EasyAI Chat - AI Chat Assistant",
-        "description": "Effortless AI chat assistant for any webpage. Access OpenAI GPT, Google Gemini, and more with a beautiful floating chat interface — directly in your browser without interrupting your workflow.",
-        "tech": ["JavaScript", "Chrome Extensions API", "OpenAI API", "Gemini API"],
-        "github": "https://github.com/ahmedamine12/Extention_EasyAI_Chat",
-        "demo": "https://chromewebstore.google.com/detail/easyai-chat/ghajibpgpnacjbeglihopdfdapalpgne",
-        "icon": "FaRobot"
-      },
-      {
-        "date": "January 2024 - February 2024",
-        "role": "Web Application",
-        "title": "Hiring Sport - Student Job Platform",
-        "description": "An application that helps students find job positions or internships, apply, practice on QCM tests, and also take the QCM tests of shared offers.",
-        "tech": ["React", "Spring Boot", "PostgreSQL", "Docker", "Jenkins", "Kubernetes", "Google Cloud"],
-        "github": "https://github.com/Hiring-Spot",
-        "icon": "FaLaptopCode"
-      },
-      {
-        "date": "November 2023 - January 2024",
-        "role": "Mobile Application",
-        "title": "Smart Navigation - Micro-service Navigation App",
-        "description": "A micro-service navigation application that suggests routes from a map to reach the nearest events of different types, suggesting detours if several events are on the main route.",
-        "tech": ["Flutter", "Spring Boot", "PostGIS", "Redis", "MongoDB", "Docker", "Jenkins", "Kubernetes", "Google Cloud"],
-        "github": "https://github.com/Smart-Navigation",
-        "icon": "FaMapMarkedAlt"
-      },
-      {
-        "date": "January 2023 - February 2023",
-        "role": "Web Application",
-        "title": "Import-Export Management System",
-        "description": "An import and export management application within the framework of RED (Customs Economic Regimes) for the benefit of VINCI ENERGIES MOROCCO.",
-        "tech": ["Spring Boot", "React", "MySQL"],
-        "github": "https://github.com/ahmedamine12/Import-Export-RED-Project",
-        "icon": "FaDatabase"
-      },
-      {
-        "role": "Desktop Application",
-        "date": "October 2021 - December 2021",
-        "title": "Controle cursor by voice",
-        "description": "Allows you to control the mouse cursor with the voice by specifying the commands to be executed such as the click and double click, Play/pause a video, and the movement of the cursor.",
-        "tech": ["Python", "speech_recognition", "gui_automation", "numpy"],
-        "github": "https://github.com/ahmedamine12/controlling-mousse",
-        "icon": "FaMousePointer"
-      },
-      {
-        "role": "Desktop Application",
-        "date": "October 2021 - December 2021",
-        "title": "Detection of colored objects and their direction",
-        "description": "Allows the detection of the object which has the color specified by the user as he determines the direction of the object when it is moving.",
-        "tech": ["Python", "argparse", "cv2", "imutils", "time", "VideoStream", "numpy"],
-        "github": "https://github.com/ahmedamine12/detection-of-colors-and-directions",
-        "icon": "FaPalette"
-      },
-      {
-        "role": "Desktop Application",
-        "date": "February 2022 - March 2022",
-        "title": "Covid-19 Expert System",
-        "description": "Allows the detection of the possible presence of Covid-19 based on user symptoms, using an integrated expert system.",
-        "tech": ["Java", "Drools", "MongoDB"],
-        "github": "https://github.com/ahmedamine12/-Test-Covid19",
-        "icon": "FaVirus"
-      },
-      {
-        "title": "Easy-Deliver - Delivery Route Optimization App",
-        "role": "Mobile Application",
-        "description": "A React Native app for delivery route optimization: calculates the shortest path between delivery points, manages delivery products, and estimates delivery costs by distance.",
-        "tech": ["React Native", "Spring Boot", "Docker", "PostgreSQL", "Redis", "Google Maps API"],
-        "github": "https://github.com/Easy-Deliver",
-        "icon": "FaMobileAlt"
-      }
-    ]
+    "article_cta": "Read my latest article"
   },
   "contact": {
-    "title": "Contact",
-    "name": "Your Full Name",
-    "email": "Your Email",
-    "message": "Your Message",
-    "send": "Send Message"
+    "kicker": "Contact",
+    "title_a": "Let's build",
+    "title_b": "something remarkable.",
+    "sub": "An idea, a role, a question about RAG or just a coffee chat: my inbox is open.",
+    "copy": "Copy email",
+    "copied": "Email copied to clipboard",
+    "write": "Write to me",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
   },
   "footer": {
-    "copyright": "All rights reserved"
+    "made": "Designed & built by Ahmed Amine Bouricha",
+    "craft": "React · Framer Motion · springs everywhere",
+    "time": "Casablanca · {{time}}",
+    "top": "Back to top"
   },
-  "download_cv": "Download CV",
-  "lets_talk": "Let's Talk",
-  "thankyou_modal": {
-    "title": "Thank you for visiting my portfolio!",
-    "message": "I appreciate your time and interest. I'm always happy to connect and collaborate. Have a wonderful day! 🎉",
-    "close": "Close"
+  "thanks": {
+    "title": "You made it to the end 🙌",
+    "text": "Thanks for scrolling all the way. That means a lot."
   },
-  "welcome_portfolio": "Welcome to my portfolio!",
-  "toggle_easter_egg": "I see you, tester! 😏",
-  "typing_intro": [
-    "Hi 👋",
-    "I'm Bouricha Ahmed Amine 🤓",
-    "Software Engineer 💻",
-    "Welcome to my portfolio!"
-  ],
+  "egg": "Okay, you found the secret switch 🕹️ Disco mode on.",
   "chatbot": {
-    "title": "Ask me anything",
-    "greeting": "Hey there! 👋 I'm Amine's virtual assistant. Pick a question below to learn more about me!",
-    "fallback": "Hmm, I don't have an answer for that yet. Feel free to reach out directly via the contact section!",
+    "title": "Ask about Amine",
+    "open": "Open the assistant",
+    "close": "Close the assistant",
+    "greeting": "Hi! 👋 I'm Amine's assistant. Pick a question to learn more about him.",
+    "fallback": "I don't have an answer for that yet. The contact section is the fastest way to reach Amine!",
     "questions": [
-      { "key": "experience", "label": "💼 What's your experience?" },
-      { "key": "tech", "label": "🛠️ What tech do you use?" },
-      { "key": "availability", "label": "🟢 Are you available?" },
-      { "key": "funfact", "label": "🎉 Tell me a fun fact!" },
-      { "key": "ai_tools", "label": "🤖 How do you use AI?" },
-      { "key": "education", "label": "🎓 What's your education?" }
+      {
+        "key": "experience",
+        "label": "What's your experience?"
+      },
+      {
+        "key": "ai",
+        "label": "What AI work do you do?"
+      },
+      {
+        "key": "tech",
+        "label": "What's your stack?"
+      },
+      {
+        "key": "open",
+        "label": "Are you open to new projects?"
+      },
+      {
+        "key": "education",
+        "label": "What's your education?"
+      },
+      {
+        "key": "funfact",
+        "label": "Tell me a fun fact"
+      }
     ],
     "answers": {
-      "experience": "I'm a Software Engineer at Xelops Technologies (ex Neoxia Maroc) since March 2024, building full-stack web apps with React, Spring Boot, PostgreSQL, Docker & Azure. Before that I did multiple internships in full-stack development and test automation.",
-      "tech": "My main stack is React + Spring Boot + PostgreSQL. I also work with Docker, Kubernetes, Azure, Python, Flutter, and .NET. I'm always exploring new tools and frameworks!",
-      "availability": "I'm currently open to new opportunities! Feel free to reach out via email or LinkedIn — I'd love to chat about your project.",
-      "funfact": "I’m usually quite fun and cheerful (when the moment is right 😄). The photo doesn’t really show it, it’s just my only professional picture 😊",
-      "ai_tools": "I leverage AI-powered tools like Cursor, GitHub Copilot, and various LLM APIs to boost productivity. I even built EasyAI Chat — a browser extension that brings GPT and Gemini to any webpage!",
-      "education": "I hold an engineering degree in software engineering. I'm passionate about continuous learning and always leveling up my skills through personal projects and tech communities."
+      "experience": "Nearly 3 years: Software Engineer at Xelops Technology since Feb 2024 (full stack + AI solutions), an e-commerce platform built end to end for Lymit Labs, and internships at Neoxia, Saweblia and Tekcy.",
+      "ai": "I design Intelligent Document Processing pipelines (OCR + LLM extraction) and RAG solutions with the Qdrant vector database, running in production. I also built BrowseMate, a Chrome extension that brings LLMs to any web page.",
+      "tech": "Java & Spring Boot, Python (FastAPI, Flask), React and Angular, PostgreSQL, Qdrant, Redis, Docker, Kubernetes and Azure DevOps / Jenkins for CI/CD.",
+      "open": "Always happy to hear about interesting roles and projects, especially anything involving applied AI. The contact section is the fastest way to reach me.",
+      "education": "State Engineer's Degree in Software Engineering (2018–2023), plus certifications from AWS (Generative AI with Bedrock), Google (SRE), IBM and EdYoda.",
+      "funfact": "I'm usually quite fun and cheerful 😄 The photo doesn't really show it, it's just my only professional picture!"
     }
+  },
+  "notes": {
+    "demo": "it's reading the invoice ↓",
+    "end": "thanks for reading!"
+  },
+  "stage": {
+    "kicker": "On stage",
+    "title": "I love a full room.",
+    "sub": "Talks, workshops and opening speeches. You're in presenter mode: use ← →, the buttons, or swipe.",
+    "next": "Next slide",
+    "notes": "Speaker notes",
+    "prev": "Previous slide",
+    "next_btn": "Next",
+    "done": "End of talk",
+    "hint": "← → keys · swipe · laser pointer on the slide",
+    "end_title": "Thanks! Any questions?",
+    "end_cta": "Ask me anything",
+    "end_note": "Leave time for questions. That's where the best conversations start.",
+    "slides": {
+      "cursor": {
+        "eyebrow": "Talk · Cursor",
+        "title": "Coding with an AI pair",
+        "sub": "A hands-on session: building from scratch, then taming legacy code with Cursor.",
+        "note": "Show, don't tell: open the editor and build it live."
+      },
+      "podium": {
+        "eyebrow": "Conference",
+        "title": "Taking the podium",
+        "sub": "Sharing what I build and how I think about software, in front of a full auditorium.",
+        "note": "Breathe. Slow down. Tell the story, not the stack."
+      },
+      "campus": {
+        "eyebrow": "Students",
+        "title": "For the next engineers",
+        "sub": "Talking with students about careers, code quality and learning fast.",
+        "note": "Remember: you were sitting in these seats not long ago."
+      },
+      "opening": {
+        "eyebrow": "CIT day",
+        "title": "Opening the day",
+        "sub": "Giving the opening speech of the CIT day.",
+        "note": "Smile, welcome everyone, set the tone for the day."
+      }
+    }
+  },
+  "flip": {
+    "hint": "Drag the page to turn it over",
+    "turn": "Turn over",
+    "download": "Download PDF",
+    "back": "Back to the site",
+    "alt": "CV of Ahmed Amine Bouricha"
+  },
+  "card": {
+    "role": "Software Engineer · Full Stack & AI",
+    "hint": "tap to turn it over · drop it in the slot to keep my contact",
+    "slot": "Drop here to save my contact",
+    "slot_over": "Let go to save it",
+    "slot_saved": "Saved to your contacts",
+    "saved": "Contact saved: Ahmed Amine Bouricha",
+    "aria": "Business card: tap to turn over, drag into the slot or press the down arrow to save the contact",
+    "hint_pc": "tap to turn it over · drag it around, it always comes back",
+    "qr": "scan to save my contact",
+    "qr_small": "tap to shrink"
   }
-} 
+}

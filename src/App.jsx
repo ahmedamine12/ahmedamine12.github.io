@@ -1,197 +1,89 @@
-import React, { useEffect, useState, useRef } from 'react'
-import Header from './components/header/Header'
-import './i18n'
+import React, { useCallback, useEffect, useState } from 'react'
+import { AnimatePresence, MotionConfig } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import Nav from './components/nav/Nav'
-import About from './components/about/About'
-import Portfolio from './components/portfolio/Portfolio'
-import Contact from './components/contact/Contact'
-import Footer from './components/footer/Footer'
-import Skills from './components/skills/Skills'
-import { FaSun, FaMoon, FaGlobe } from 'react-icons/fa'
-import ThankYouModal from './components/ThankYouModal'
-import Chatbot from './components/chatbot/Chatbot'
-import useTilt from './hooks/useTilt'
+import './i18n'
+import CV_EN from './assets/CV_EN.pdf'
+import CV_FR from './assets/CV_FR.pdf'
+import Chatbot from './Chatbot'
+import { Aurora, Brand, Intro } from './ui/Intro'
+import { Dock, Toasts } from './ui/Dock'
+import { Hero } from './ui/Hero'
+import { About, Marquee } from './ui/About'
+import { PageThread } from './ui/PageThread'
+import { Experience } from './ui/Experience'
+import { Work } from './ui/Work'
+import { Skills, Beyond } from './ui/Skills'
+import { Contact, Footer, useThanks } from './ui/Contact'
+import { Stage } from './ui/Stage'
+import { useToasts } from './ui/kit'
+import { FlipProvider } from './ui/Flip'
+import CVIMG_EN from './assets/cv_page_en.webp'
+import CVIMG_FR from './assets/cv_page_fr.webp'
 
-const languages = [
-  { code: 'en', label: 'EN' },
-  { code: 'fr', label: 'FR' }
-];
+const CV = { en: CV_EN, fr: CV_FR }
+const cvName = (lng) => `Ahmed_Amine_Bouricha_CV_${lng === 'fr' ? 'FR' : 'EN'}.pdf`
 
-const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
-  return (
-    <div className="lang-switcher">
-      {languages.map(lang => (
-        <button
-          key={lang.code}
-          onClick={() => i18n.changeLanguage(lang.code)}
-          className={i18n.language === lang.code ? 'active' : ''}
-          aria-label={`Switch language to ${lang.label}`}
-        >
-          {lang.label}
-        </button>
-      ))}
-    </div>
-  );
-};
-
-const WindowThemeToggle = ({ theme, toggleTheme, onEasterEgg }) => {
-  const [flipping, setFlipping] = useState(false);
-  const clicksRef = useRef([]);
-  const handleClick = () => {
-    setFlipping(true);
-    const now = Date.now();
-    const filtered = clicksRef.current.filter(ts => now - ts < 2000);
-    const updated = [...filtered, now];
-    if (updated.length >= 5) {
-      onEasterEgg && onEasterEgg();
-      clicksRef.current = [];
-    } else {
-      clicksRef.current = updated;
-    }
-    setTimeout(() => {
-      toggleTheme();
-      setFlipping(false);
-    }, 400);
-  };
-  return (
-    <button
-      className={`window-theme-toggle${flipping ? ' flipping' : ''}`}
-      aria-label="Toggle dark/light mode"
-      onClick={handleClick}
-    >
-      <div className={`window-frame${theme === 'light' ? ' day' : ' night'}`}> 
-        <div className="window-pane">
-          {theme === 'light' ? (
-            <span className="window-sun"><FaSun /></span>
-          ) : (
-            <span className="window-moon"><FaMoon /></span>
-          )}
-        </div>
-      </div>
-    </button>
-  );
-};
-
-const MobileLanguageSwitcher = () => {
-  const { i18n } = useTranslation();
-  const [open, setOpen] = React.useState(false);
-  return (
-    <div>
-      <button
-        className="mobile-lang-fab"
-        aria-label="Switch language"
-        onClick={() => setOpen(o => !o)}
-      >
-        <FaGlobe />
-      </button>
-      {open && (
-        <div className="mobile-lang-popup">
-          {languages.map(lang => (
-            <button
-              key={lang.code}
-              onClick={() => {
-                i18n.changeLanguage(lang.code);
-                setOpen(false);
-              }}
-              className={i18n.language === lang.code ? 'active' : ''}
-            >
-              {lang.label}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
+// 'full' on a first visit, 'short' (signature only) for returning visitors, nothing again in the same session
+const introMode = () => {
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null
+    if (/HeadlessChrome/.test(navigator.userAgent) || navigator.webdriver) return null
+    if (sessionStorage.getItem('intro')) return null
+    return localStorage.getItem('visited') ? 'short' : 'full'
+  } catch { return null }
+}
 
 const App = () => {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'dark';
-  });
-
-  const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'));
-
-  useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+  const { t, i18n } = useTranslation()
+  const lng = i18n.language === 'fr' ? 'fr' : 'en'
+  const [theme, setTheme] = useState(() => document.documentElement.getAttribute('data-theme') || 'dark')
+  const [mode] = useState(introMode)
+  const [intro, setIntro] = useState(!!mode)
+  const [played] = useState(intro)
+  const [toasts, dismiss] = useToasts()
+  useThanks()
 
   useEffect(() => {
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          // Reveal sections on scroll
-          document.querySelectorAll('.section-fade-in').forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) {
-              section.classList.add('visible');
-            }
-          });
-          // Parallax blobs
-          document.querySelectorAll('.hero-blob').forEach((blob, i) => {
-            const speed = 0.12 + i * 0.07;
-            blob.style.transform = `translateY(${window.scrollY * speed}px)`;
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    document.documentElement.setAttribute('data-theme', theme)
+    try { localStorage.setItem('theme', theme) } catch { /* private mode */ }
+    document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute('content', theme === 'dark' ? '#05060a' : '#f5f5f7'))
+  }, [theme])
 
-  const [showThankYou, setShowThankYou] = useState(false);
+  const endIntro = useCallback(() => {
+    setIntro(false)
+    try { sessionStorage.setItem('intro', '1'); localStorage.setItem('visited', '1') } catch { /* ignore */ }
+  }, [])
 
-  useEffect(() => {
-    const onScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 10 &&
-        !showThankYou &&
-        !sessionStorage.getItem('thankYouShown')
-      ) {
-        setShowThankYou(true);
-        sessionStorage.setItem('thankYouShown', '1');
-      }
-    };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [showThankYou]);
-
-  const { t } = useTranslation();
-  const [showEasterEgg, setShowEasterEgg] = useState(false);
-  const handleEasterEgg = () => {
-    setShowEasterEgg(true);
-    setTimeout(() => setShowEasterEgg(false), 2000);
-  };
-
-  // Slight tilt for skills cards, ultra-minimal for experience/portfolio cards
-  useTilt('.skills__card', 4);
-  useTilt('.project-card', 2);
-
-  return (  
-    <>
-      <div className="desktop-lang-switcher"><LanguageSwitcher /></div>
-      <div className="mobile-lang-switcher"><MobileLanguageSwitcher /></div>
-      <WindowThemeToggle theme={theme} toggleTheme={toggleTheme} onEasterEgg={handleEasterEgg} />
-      {showEasterEgg && (
-        <div className="theme-easter-egg-popup">{t('toggle_easter_egg')}</div>
+  return (
+    <MotionConfig reducedMotion="user">
+      <a className="skip" href="#about">{t('meta.skip')}</a>
+      <Aurora />
+      <AnimatePresence>{intro && <Intro key="intro" mode={mode} onDone={endIntro} />}</AnimatePresence>
+      {!intro && (
+        <FlipProvider cvImg={lng === 'fr' ? CVIMG_FR : CVIMG_EN} cvPdf={CV[lng]} cvName={cvName(lng)}
+          outside={<>
+            <Brand fromIntro={played} />
+            <PageThread />
+            <Dock theme={theme} toggleTheme={() => setTheme(x => (x === 'dark' ? 'light' : 'dark'))} />
+            <Toasts items={toasts} dismiss={dismiss} />
+            <Chatbot />
+          </>}>
+          <main>
+            <Hero />
+            <Marquee />
+            <About />
+            <Experience />
+            <Work />
+            <Skills />
+            <Stage />
+            <Beyond />
+            <Contact />
+          </main>
+          <Footer />
+        </FlipProvider>
       )}
-      <Header />
-      <Nav />
-      <About />
-      <Skills />
-      <Portfolio />  
-      <Contact />
-      <Footer />
-      <ThankYouModal open={showThankYou} onClose={() => setShowThankYou(false)} />
-      <Chatbot />
-    </>
-  );
-};
+    </MotionConfig>
+  )
+}
 
 export default App
