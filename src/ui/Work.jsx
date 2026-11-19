@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion, useDragControls, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { Head, Icon, Reveal, SHEET, SPRING, Tilt, project } from './kit'
+import { Head, Icon, Reveal, SHEET, SPRING, Tilt, project, useFinePointer } from './kit'
 import { WORK } from '../data'
 import { IdpDemo } from './IdpDemo'
 import { Archive } from './Archive'
@@ -11,10 +11,11 @@ const Badge = ({ w, t }) => w.badge ? <span className="badge">{t(`work.${w.badge
 
 const Card = ({ w, onOpen, t }) => {
   const it = t(`work.items.${w.id}`, { returnObjects: true })
+  const fine = useFinePointer()
   return (
     <Tilt max={4} className={`work-card card${w.size === 'lg' ? ' work-card--lg' : ''}`} style={{ '--tone': w.tone }}>
       <button className="work-card__hit" onClick={onOpen} aria-label={`${t('work.open')}: ${it.title}`} />
-      <motion.div layoutId={`media-${w.id}`} className="work-card__media" transition={SHEET}>
+      <motion.div layoutId={fine ? `media-${w.id}` : undefined} className="work-card__media" transition={SHEET}>
         <img src={w.img} alt="" loading="lazy" />
       </motion.div>
       <div className="work-card__body">
@@ -33,6 +34,7 @@ const Card = ({ w, onOpen, t }) => {
 const Sheet = ({ w, onClose, t }) => {
   const it = t(`work.items.${w.id}`, { returnObjects: true })
   const controls = useDragControls()
+  const fine = useFinePointer()
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
@@ -59,7 +61,7 @@ const Sheet = ({ w, onClose, t }) => {
         </div>
         <button className="sheet__close" onClick={onClose} aria-label={t('work.close')}><Icon name="close" size={18} /></button>
         <div className="sheet__scroll">
-          <motion.div layoutId={`media-${w.id}`} className="sheet__media" style={{ background: w.tone }} transition={SHEET} onPointerDown={(e) => { if (e.pointerType !== 'touch') controls.start(e) }}>
+          <motion.div layoutId={fine ? `media-${w.id}` : undefined} className="sheet__media" style={{ background: w.tone }} transition={SHEET} onPointerDown={(e) => { if (e.pointerType !== 'touch') controls.start(e) }}>
             <img src={w.img} alt={it.title} />
           </motion.div>
           <motion.div className="sheet__body" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} transition={{ ...SPRING, delay: 0.08 }}>
@@ -133,12 +135,17 @@ const Rail = ({ head, children, count }) => {
   )
 }
 
+const Plain = ({ delay, className, children }) => <div className={className}>{children}</div>
+
 export const Work = () => {
   const { t } = useTranslation()
   const [open, setOpen] = useState(null)
   const more = t('work.more', { returnObjects: true })
   const cur = WORK.find(w => w.id === open)
   const rail = useRailMode()
+  // Phones get the content without scroll-triggered fades: iOS Safari left this whole section blank
+  const fine = useFinePointer()
+  const Show = fine ? Reveal : Plain
   return (
     <section className="section" id="work">
         {rail ? (
@@ -150,21 +157,21 @@ export const Work = () => {
             <Head n="03" kicker={t('work.kicker')} title={t('work.title')} sub={t('work.sub')} />
             <div className="work-grid">
               {WORK.map((w, i) => (
-                <Reveal key={w.id} delay={(i % 2) * 0.06} className={w.size === 'lg' ? 'span-lg' : ''}>
+                <Show key={w.id} delay={(i % 2) * 0.06} className={w.size === 'lg' ? 'span-lg' : ''}>
                   <Card w={w} t={t} onOpen={() => setOpen(w.id)} />
-                </Reveal>
+                </Show>
               ))}
             </div>
           </div>
         )}
         <div className="wrap">
-        <Reveal className="older">
+        <Show className="older">
           <div className="older__head">
             <h3 className="older__h">{t('work.more_title')}</h3>
             <p className="older__sub">{t('work.more_sub')}</p>
           </div>
           <Archive items={more} labels={t('work.archive', { returnObjects: true })} />
-        </Reveal>
+        </Show>
       </div>
       <AnimatePresence>{cur && <Sheet key={cur.id} w={cur} t={t} onClose={() => setOpen(null)} />}</AnimatePresence>
     </section>

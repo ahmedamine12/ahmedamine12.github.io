@@ -448,6 +448,14 @@ main { position: relative; z-index: 1; }
 .older__h { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 700; letter-spacing: -.03em; }
 .older__sub { color: var(--text-2); font-size: 15px; }
 
+/* touch devices: no glass or reflections in this section. iOS Safari stopped painting it under
+   backdrop-filter cards + 3D cover flow with box-reflect inside a mask */
+@media (hover: none), (pointer: coarse) {
+  .work-card.card { background: var(--bg-2); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .cf .cf__stage { mask-image: none; -webkit-mask-image: none; }
+  .cf .cf__item { -webkit-box-reflect: none; }
+}
+
 /* cover flow */
 .cf { margin-top: 18px; padding: 8px 0 28px; overflow: hidden; }
 .cf__stage { position: relative; height: calc(var(--cf) * 1.55); perspective: 1100px; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; overflow: hidden;
