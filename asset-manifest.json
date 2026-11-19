@@ -1,16 +1,29 @@
 {
   "files": {
-    "main.css": "/ImBourichaAhmedAmine.github.io/static/css/main.d1499821.css",
-    "main.js": "/ImBourichaAhmedAmine.github.io/static/js/main.09f3e068.js",
-    "static/media/ENG_BOURICHA AHMED AMINE.pdf": "/ImBourichaAhmedAmine.github.io/static/media/ENG_BOURICHA AHMED AMINE.a5340fbea09a3b05c7a9.pdf",
-    "static/media/FR_BOURICHA AHMED AMINE.pdf": "/ImBourichaAhmedAmine.github.io/static/media/FR_BOURICHA AHMED AMINE.3f4a3a23cf29028c9d7d.pdf",
+    "main.css": "/ImBourichaAhmedAmine.github.io/static/css/main.e6fb1a1a.css",
+    "main.js": "/ImBourichaAhmedAmine.github.io/static/js/main.fe04da56.js",
+    "static/media/cv_page_fr.webp": "/ImBourichaAhmedAmine.github.io/static/media/cv_page_fr.fc6e5d0a0da66b5aeb45.webp",
+    "static/media/cv_page_en.webp": "/ImBourichaAhmedAmine.github.io/static/media/cv_page_en.5cd289071eeca2164255.webp",
+    "static/media/CV_EN.pdf": "/ImBourichaAhmedAmine.github.io/static/media/CV_EN.b9ef3996967d6901022d.pdf",
+    "static/media/CV_FR.pdf": "/ImBourichaAhmedAmine.github.io/static/media/CV_FR.4c06b97867bb58c73d82.pdf",
+    "static/media/saas_restaurants.webp": "/ImBourichaAhmedAmine.github.io/static/media/saas_restaurants.d2945d3d294f46253ffd.webp",
+    "static/media/browsemate.webp": "/ImBourichaAhmedAmine.github.io/static/media/browsemate.d9b4a2d54ee728c97c45.webp",
+    "static/media/stage-campus.webp": "/ImBourichaAhmedAmine.github.io/static/media/stage-campus.47b31371351d0ba7ff70.webp",
+    "static/media/idp.webp": "/ImBourichaAhmedAmine.github.io/static/media/idp.f469af1daed206d9f5ee.webp",
+    "static/media/lymit_labs.webp": "/ImBourichaAhmedAmine.github.io/static/media/lymit_labs.ca7e50bba5c8cf9b8f13.webp",
+    "static/media/smart_navigation.webp": "/ImBourichaAhmedAmine.github.io/static/media/smart_navigation.6a73cb5af1f6f2f8e003.webp",
+    "static/media/services_domicile.webp": "/ImBourichaAhmedAmine.github.io/static/media/services_domicile.de0bbbd1c0fa69c55eeb.webp",
+    "static/media/stage-podium.webp": "/ImBourichaAhmedAmine.github.io/static/media/stage-podium.c06b19fcfd6d019cb6d5.webp",
     "static/media/proPic.webp": "/ImBourichaAhmedAmine.github.io/static/media/proPic.25b66fbb518ad0c25812.webp",
+    "static/media/portrait-stage.webp": "/ImBourichaAhmedAmine.github.io/static/media/portrait-stage.f392d24c7ce54ec28348.webp",
+    "static/media/stage-cursor.webp": "/ImBourichaAhmedAmine.github.io/static/media/stage-cursor.81356cdf86d6d9eeb500.webp",
+    "static/media/stage-opening.webp": "/ImBourichaAhmedAmine.github.io/static/media/stage-opening.56b1e3ec8a6515b850d1.webp",
     "index.html": "/ImBourichaAhmedAmine.github.io/index.html",
-    "main.d1499821.css.map": "/ImBourichaAhmedAmine.github.io/static/css/main.d1499821.css.map",
-    "main.09f3e068.js.map": "/ImBourichaAhmedAmine.github.io/static/js/main.09f3e068.js.map"
+    "main.e6fb1a1a.css.map": "/ImBourichaAhmedAmine.github.io/static/css/main.e6fb1a1a.css.map",
+    "main.fe04da56.js.map": "/ImBourichaAhmedAmine.github.io/static/js/main.fe04da56.js.map"
   },
   "entrypoints": [
-    "static/css/main.d1499821.css",
-    "static/js/main.09f3e068.js"
+    "static/css/main.e6fb1a1a.css",
+    "static/js/main.fe04da56.js"
   ]
 }
