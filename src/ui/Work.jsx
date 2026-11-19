@@ -36,9 +36,11 @@ const Sheet = ({ w, onClose, t }) => {
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prev }
+    // iOS Safari ignores overflow on <body> alone; lock the root too so the page doesn't scroll behind the sheet
+    const root = document.documentElement
+    const prev = [document.body.style.overflow, root.style.overflow]
+    document.body.style.overflow = 'hidden'; root.style.overflow = 'hidden'
+    return () => { window.removeEventListener('keydown', onKey); [document.body.style.overflow, root.style.overflow] = prev }
   }, [onClose])
   return createPortal(
     <div className="sheet-layer" role="dialog" aria-modal="true" aria-label={it.title}>
@@ -57,7 +59,7 @@ const Sheet = ({ w, onClose, t }) => {
         </div>
         <button className="sheet__close" onClick={onClose} aria-label={t('work.close')}><Icon name="close" size={18} /></button>
         <div className="sheet__scroll">
-          <motion.div layoutId={`media-${w.id}`} className="sheet__media" style={{ background: w.tone }} transition={SHEET} onPointerDown={(e) => controls.start(e)}>
+          <motion.div layoutId={`media-${w.id}`} className="sheet__media" style={{ background: w.tone }} transition={SHEET} onPointerDown={(e) => { if (e.pointerType !== 'touch') controls.start(e) }}>
             <img src={w.img} alt={it.title} />
           </motion.div>
           <motion.div className="sheet__body" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} transition={{ ...SPRING, delay: 0.08 }}>

@@ -18,7 +18,8 @@ export const SHEET = spring(0.3, 0.8)       // drawers / sheets
 export const project = (v, d = 0.998) => (v / 1000) * d / (1 - d)
 
 export const useFinePointer = () => {
-  const [fine, setFine] = useState(false)
+  // read synchronously so the first render already matches the device (no div → motion.div remount)
+  const [fine, setFine] = useState(() => typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches)
   useEffect(() => {
     const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
     const set = () => setFine(mq.matches)
@@ -94,6 +95,10 @@ export const Tilt = ({ max = 6, className = '', children, style, ...rest }) => {
   const px = useMotionValue(0.5), py = useMotionValue(0.5)
   const rx = useSpring(useTransform(py, [0, 1], [max, -max]), SPRING)
   const ry = useSpring(useTransform(px, [0, 1], [-max, max]), SPRING)
+  const fine = useFinePointer()
+  // Touch has no hover to tilt with. A permanent perspective() layer combined with the card's
+  // backdrop-filter makes iOS Safari render the card blank, so phones get a flat, plain element.
+  if (!fine) return <div className={`tilt ${className}`} style={style} {...rest}>{children}</div>
   return (
     <motion.div className={`tilt ${className}`} style={{ rotateX: rx, rotateY: ry, transformPerspective: 900, ...style }}
       onPointerMove={(e) => {
@@ -126,11 +131,15 @@ export const Head = ({ n, kicker, title, sub, center }) => (
 
 export const Reveal = ({ children, delay = 0, y = 24, className = '', as = 'div', ...rest }) => {
   const Comp = motion[as]
+  const fine = useFinePointer()
+  // one entrance for the whole page: the block "materializes" (rise + un-blur), then leaves no filter behind.
+  // On touch devices the blur is skipped: an animated filter over backdrop-filter cards is what
+  // blanks them out on iOS Safari, and it's the most expensive part of the entrance on a phone.
+  const from = fine ? { opacity: 0, y, filter: 'blur(8px)' } : { opacity: 0, y }
+  const to = fine ? { opacity: 1, y: 0, filter: 'blur(0px)', transitionEnd: { filter: 'none' } } : { opacity: 1, y: 0 }
   return (
-    // one entrance for the whole page: the block "materializes" (rise + un-blur), then leaves no filter behind
-    <Comp className={className} initial={{ opacity: 0, y, filter: 'blur(8px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', transitionEnd: { filter: 'none' } }}
-      viewport={{ once: true, margin: '-8% 0px' }} transition={{ ...SPRING, delay }} {...rest}>{children}</Comp>
+    <Comp className={className} initial={from} whileInView={to}
+      viewport={{ once: true, amount: 0.05 }} transition={{ ...SPRING, delay }} {...rest}>{children}</Comp>
   )
 }
 
