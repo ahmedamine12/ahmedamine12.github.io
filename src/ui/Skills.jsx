@@ -31,6 +31,55 @@ const Key = ({ id, label, g, mod, deco, down, onPress, wide }) => (
   </button>
 )
 
+/*
+  Phones: no physical keyboard to type on, so no "press any key" screen and no stretched rows.
+  Keys sit at their natural width under each family's label; tapping one opens its note right
+  under that family (anchored to the finger, not to a screen at the top). Tap again to close.
+*/
+const TouchDeck = ({ groups, caps, curId, onToggle }) => {
+  const rows = [...ROWS, ['space', ['Curiosity']]]
+  return (
+    <div className="surface kb kt">
+      {rows.map(([g, ks]) => {
+        const open = curId && (curId === `mod:${g}` || ks.some(k => curId === `key:${k}`))
+        const isMod = curId === `mod:${g}`
+        const name = isMod ? groups[g] : curId?.slice(4) === 'Curiosity' ? (caps.Curiosity_label || 'Curiosity') : curId?.slice(4)
+        const text = isMod ? caps[`@${g}`] : caps[curId?.slice(4)]
+        return (
+          <div className={`kt__group kc--${g}`} key={g}>
+            {g !== 'space' && (
+              <button type="button" className={`kt__label${isMod ? ' is-on' : ''}`} aria-expanded={isMod} onClick={() => onToggle(`mod:${g}`)}>
+                <i />{groups[g]}
+              </button>
+            )}
+            <div className="kt__keys">
+              {ks.map(k => {
+                const id = `key:${k}`, on = curId === id
+                return (
+                  <button type="button" key={k} className={`kt__key${g === 'space' ? ' kt__key--space' : ''}${on ? ' is-on' : ''}`} aria-expanded={on} onClick={() => onToggle(id)}>
+                    {g === 'space' ? (caps.Curiosity_label || k) : k}
+                  </button>
+                )
+              })}
+            </div>
+            <AnimatePresence initial={false}>
+              {open && (
+                <motion.div className="kt__note" key="note" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={SPRING}>
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.div key={curId} className="kt__note-in" aria-live="polite" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -3 }} transition={{ duration: 0.14 }}>
+                      <b>{name}</b><span>{text}</span>
+                    </motion.div>
+                  </AnimatePresence>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export const Skills = () => {
   const { t } = useTranslation()
   const caps = t('skills.keys', { returnObjects: true })
@@ -48,7 +97,6 @@ export const Skills = () => {
     const g = kind === 'mod' ? name : (ALL.find(x => x.k === name) || {}).g
     setCur({ id, label: kind === 'mod' ? groups[name] : name === 'Curiosity' ? (caps.Curiosity_label || name) : name, g, text: kind === 'mod' ? caps[`@${name}`] : caps[name] })
     setDown(id); setTimeout(() => setDown(d => (d === id ? null : d)), 160)
-    if (!fine) navigator.vibrate?.(8)
   }
 
   const pressRef = useRef(press)
@@ -75,6 +123,10 @@ export const Skills = () => {
       <div className="wrap">
         <Head n="04" kicker={t('skills.kicker')} title={t('skills.title')} />
         <Reveal>
+          {!fine ? (
+            <TouchDeck groups={groups} caps={caps} curId={cur?.id}
+              onToggle={(id) => { if (cur?.id === id) setCur(null); else { press(id); navigator.vibrate?.(8) } }} />
+          ) : (
           <div className="surface kb">
             <div className={`kb__screen${cur ? ` is-on kc--${cur.g}` : ''}`} aria-live="polite">
               <AnimatePresence mode="wait" initial={false}>
@@ -103,6 +155,7 @@ export const Skills = () => {
               </div>
             </div>
           </div>
+          )}
         </Reveal>
       </div>
     </section>
