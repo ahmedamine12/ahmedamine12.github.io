@@ -25,14 +25,14 @@ const VCARD = [
   `EMAIL;TYPE=INTERNET:${LINKS.emailLabel}`,
   'TEL;TYPE=CELL:+212677992837',
   'ADR;TYPE=WORK:;;;Casablanca;;;Morocco',
-  'URL:https://ahmedamine12.github.io/ImBourichaAhmedAmine.github.io/',
+  'URL:https://ahmedamine12.github.io/',
   `X-SOCIALPROFILE;TYPE=linkedin:${LINKS.linkedin}`,
   `X-SOCIALPROFILE;TYPE=github:${LINKS.github}`,
   'END:VCARD',
 ].join('\r\n')
 
 // compact contact for the QR (MeCard: read as a contact by iPhone and Android cameras)
-const MECARD = `MECARD:N:Bouricha,Ahmed Amine;TEL:+212677992837;EMAIL:${LINKS.emailLabel};URL:https://ahmedamine12.github.io/ImBourichaAhmedAmine.github.io/;NOTE:Software Engineer - Full Stack & AI;;`
+const MECARD = `MECARD:N:Bouricha,Ahmed Amine;TEL:+212677992837;EMAIL:${LINKS.emailLabel};URL:https://ahmedamine12.github.io/;NOTE:Software Engineer - Full Stack & AI;;`
 
 const saveContact = () => {
   const url = URL.createObjectURL(new Blob([VCARD], { type: 'text/vcard' }))
