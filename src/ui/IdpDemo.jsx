@@ -50,7 +50,7 @@ export const IdpDemo = ({ embedded = false }) => {
             <div className="steps">
               {steps.map((s, i) => (
                 <span key={s} className={`step${i === stepIdx && phase > 0 && phase < 4 ? ' is-on' : ''}${i < stepIdx || phase === 4 ? ' is-done' : ''}`}>
-                  {(i === stepIdx && phase > 0 && phase < 4) && <motion.span layoutId="step-pill" className="step__pill" transition={SNAPPY} />}
+                  {(i === stepIdx && phase > 0 && phase < 4) && <motion.span key={stepIdx} className="step__pill" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={SNAPPY} />}
                   <span className="step__t">{i < stepIdx || phase === 4 ? '✓' : i + 1} · {s}</span>
                 </span>
               ))}

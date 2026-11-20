@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { AnimatePresence, motion, useDragControls, useScroll, useTransform } from 'framer-motion'
+import { AnimatePresence, motion, useDragControls, useIsPresent, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Head, Icon, Reveal, SHEET, SPRING, Tilt, project, useFinePointer } from './kit'
 import { WORK } from '../data'
@@ -35,7 +35,11 @@ const Sheet = ({ w, onClose, t }) => {
   const it = t(`work.items.${w.id}`, { returnObjects: true })
   const controls = useDragControls()
   const fine = useFinePointer()
+  // Closing must hand the page back immediately: the lock and the hit area are released the moment
+  // the sheet starts leaving, not when its exit animation ends (if that ever stalls, the site froze).
+  const present = useIsPresent()
   useEffect(() => {
+    if (!present) return
     const onKey = (e) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
     // iOS Safari ignores overflow on <body> alone; lock the root too so the page doesn't scroll behind the sheet
@@ -43,9 +47,9 @@ const Sheet = ({ w, onClose, t }) => {
     const prev = [document.body.style.overflow, root.style.overflow]
     document.body.style.overflow = 'hidden'; root.style.overflow = 'hidden'
     return () => { window.removeEventListener('keydown', onKey); [document.body.style.overflow, root.style.overflow] = prev }
-  }, [onClose])
+  }, [onClose, present])
   return createPortal(
-    <div className="sheet-layer" role="dialog" aria-modal="true" aria-label={it.title}>
+    <div className="sheet-layer" role="dialog" aria-modal="true" aria-label={it.title} style={present ? undefined : { pointerEvents: 'none' }}>
       <motion.div className="scrim" onClick={onClose} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} />
       <motion.div className="sheet"
         drag="y" dragControls={controls} dragListener={false}
