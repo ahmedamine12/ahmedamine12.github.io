@@ -442,9 +442,13 @@
       "Curiosity": "The key I press the most. New tools, new ideas, every week.",
       "Curiosity_label": "Curiosity"
     },
-    "idle": "Press any key",
-    "idle_type": "Tap a key, or just type on your keyboard.",
-    "idle_tap": "Tap a key to see what I use it for."
+    "sub": "Every product I ship is built in layers. Scroll to take one apart.",
+    "hint": "Scroll to take it apart ↓",
+    "layer": "Layer",
+    "layers": "{{n}} layers, one product",
+    "across": "Across every layer",
+    "intro": "From the screen you touch down to the servers it runs on, this is what I use at each level.",
+    "pick": "Tap a tool to see how I use it."
   },
   "more": {
     "kicker": "Beyond code",

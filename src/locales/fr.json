@@ -442,9 +442,13 @@
       "Curiosity": "La touche sur laquelle j’appuie le plus. Nouveaux outils, nouvelles idées, chaque semaine.",
       "Curiosity_label": "Curiosité"
     },
-    "idle": "Appuyez sur une touche",
-    "idle_type": "Cliquez une touche, ou tapez directement sur votre clavier.",
-    "idle_tap": "Touchez une touche pour voir à quoi elle me sert."
+    "sub": "Chaque produit que je livre se construit par couches. Faites défiler pour en démonter un.",
+    "hint": "Faites défiler pour le démonter ↓",
+    "layer": "Couche",
+    "layers": "{{n}} couches, un seul produit",
+    "across": "Sur toutes les couches",
+    "intro": "De l'écran que vous touchez jusqu'aux serveurs qui le font tourner, voici ce que j'utilise à chaque niveau.",
+    "pick": "Touchez un outil pour voir comment je l'utilise."
   },
   "more": {
     "kicker": "Au-delà du code",
