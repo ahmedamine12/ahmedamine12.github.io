@@ -92,19 +92,16 @@
     "lead": {
       "a": [
         {
-          "t": "J’adore résoudre des "
+          "t": "J’adore transformer un "
         },
         {
-          "t": "problèmes",
+          "t": "besoin flou",
           "k": "mess"
-        },
-        {
-          "t": ","
         }
       ],
       "b": [
         {
-          "t": "et rendre la solution "
+          "t": "en quelque chose de "
         },
         {
           "t": "simple",
@@ -115,7 +112,7 @@
         }
       ]
     },
-    "body": "Vous apportez le problème. Je construis la solution : rapide, fiable et simple à utiliser, expliquée sans jargon.",
+    "body": "D’abord, j’écoute jusqu’à bien comprendre votre besoin. Ensuite, je vous explique le plan avec des mots simples, puis je le construis : rapide, fiable et facile à utiliser.",
     "notes": [
       "📍 Casablanca",
       "AR · FR · EN",
@@ -124,8 +121,8 @@
       "🧩 accro aux défis"
     ],
     "thread": {
-      "mess": "un problème en vrac",
-      "neat": "évident.",
+      "mess": "un besoin flou",
+      "neat": "limpide.",
       "pull": "tire le fil",
       "aria": "Tirer le fil pour le démêler",
       "notes": "Quelques mots sur moi"

@@ -6,7 +6,7 @@ import { SKILLS } from '../data'
 
 /*
   About = the statement, acted out.
-  "Turning a messy problem into an obvious solution": a tangled thread the visitor pulls straight.
+  "Turning an unclear need into something simple": a tangled thread the visitor pulls straight.
   - Direct manipulation: the thread's end follows the pointer 1:1 (horizontal), grab anywhere on the stage.
   - Release: Apple's momentum projection picks solved / tangled, the release velocity is handed to the spring.
   - Interruptible: grab it again mid-flight, it continues from where it is (motion value, never a CSS transition).

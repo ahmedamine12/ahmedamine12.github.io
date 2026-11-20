@@ -92,19 +92,16 @@
     "lead": {
       "a": [
         {
-          "t": "I love solving "
+          "t": "I love turning "
         },
         {
-          "t": "problems",
+          "t": "unclear needs",
           "k": "mess"
-        },
-        {
-          "t": ","
         }
       ],
       "b": [
         {
-          "t": "and making the answer feel "
+          "t": "into something "
         },
         {
           "t": "simple",
@@ -115,7 +112,7 @@
         }
       ]
     },
-    "body": "You bring the problem. I build the solution: fast, reliable and easy to use, explained without jargon.",
+    "body": "First, I listen until I fully understand what you need. Then I explain the plan in plain words, and build it: fast, reliable and easy to use.",
     "notes": [
       "📍 Casablanca",
       "AR · FR · EN",
@@ -124,8 +121,8 @@
       "🧩 loves a good challenge"
     ],
     "thread": {
-      "mess": "a messy problem",
-      "neat": "obvious.",
+      "mess": "an unclear need",
+      "neat": "crystal clear.",
       "pull": "pull the thread",
       "aria": "Pull the thread to untangle it",
       "notes": "A few things about me"
