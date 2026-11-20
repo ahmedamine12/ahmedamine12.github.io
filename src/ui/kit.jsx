@@ -67,6 +67,7 @@ const P = {
   badge: <><circle cx="12" cy="9" r="6" /><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7" /></>,
   replay: <><path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" /></>,
   up: <path d="M12 20V6M6 11l6-6 6 6" />,
+  chev: <path d="m6 9 6 6 6-6" />,
 }
 
 /* ---------- Magnetic: follows the pointer a little, springs home ---------- */

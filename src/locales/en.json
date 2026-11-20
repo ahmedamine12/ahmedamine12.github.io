@@ -256,8 +256,15 @@
       }
     ],
     "ui": {
-      "hint": "follow the thread ↓",
-      "now": "Now"
+      "now": "Now",
+      "changes_one": "+{{count}} change",
+      "changes_other": "+{{count}} changes",
+      "tools_one": "{{count}} tool",
+      "tools_other": "{{count}} tools",
+      "head": "HEAD · still shipping",
+      "parallel": "open branch · in parallel",
+      "merged": "merged into main",
+      "next": "git commit -m \"your project?\""
     }
   },
   "work": {
