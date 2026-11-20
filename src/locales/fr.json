@@ -257,14 +257,11 @@
     ],
     "ui": {
       "now": "Aujourd’hui",
-      "changes_one": "+{{count}} changement",
-      "changes_other": "+{{count}} changements",
-      "tools_one": "{{count}} outil",
-      "tools_other": "{{count}} outils",
-      "head": "HEAD · toujours en cours",
-      "parallel": "branche ouverte · en parallèle",
-      "merged": "fusionnée dans main",
-      "next": "git commit -m \"votre projet ?\""
+      "sub": "De mon premier stage au camp de base jusqu'au sommet où je suis aujourd'hui. Faites défiler pour grimper avec moi.",
+      "base": "Camp de base",
+      "camp": "Camp {{n}}",
+      "side": "Pic voisin · en parallèle",
+      "summit": "Sommet · aujourd'hui"
     }
   },
   "work": {

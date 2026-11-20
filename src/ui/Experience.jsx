@@ -1,135 +1,202 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion, useInView } from 'framer-motion'
+import { motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { Head, Icon, Reveal, SPRING } from './kit'
+import { Head, Reveal, SPRING } from './kit'
 import { EXP_TECH } from '../data'
 
 /*
-  Journey = my career as `git log --graph`.
-  - Every role is a commit: short hash, branch refs, dates, the role as the commit message.
-  - The graph tells the real shape: the full-time role is `main` (HEAD), the part-time one runs on a
-    parallel branch, internships are feature branches merged back into main.
-  - Commits arrive as one line; when you scroll to one, its diff opens (what I did, as `+` lines)
-    and stays open. Tap any commit to open or fold it. Normal scrolling, nothing pinned.
+  Journey = a climb. Read from base camp (first internship) up to the summit (today's job).
+  - Wide screens: the mountain stays beside the cards; a trail draws itself as you scroll and a
+    small climber walks it, camp by camp. Click a camp to jump to its story.
+  - Phones: the mountain becomes an elevation strip pinned on top (like a hiking app).
+  - The climber follows your scroll 1:1 (through a spring), nothing is hijacked.
 */
-const HASH = ['a3f9c21', '7e1b04d', 'c58d2fa', '19be6a0', 'e40d7b3']
-const REF = ['xelops', 'lymit-labs', 'neoxia', 'saweblia', 'tekcy']
-const LANE = [1, 2, 2, 2, 2]
+
+// story order, bottom → top: items are stored newest first in the locales
+const ORDER = [4, 3, 2, 1, 0]           // Tekcy, Saweblia, Neoxia, Lymit Labs, Xelops
+const KIND = ['base', 'camp', 'camp', 'side', 'summit']
+
+// trail vertices; camps sit on the even ones
+const GEO = {
+  desk: {
+    vb: '0 0 400 500',
+    pts: [[58, 474], [176, 440], [112, 398], [222, 352], [158, 300], [252, 252], [326, 156], [298, 176], [266, 112]],
+    camps: [0, 2, 4, 6, 8],
+    lab: [[14, 4, 'start'], [-14, 4, 'end'], [14, 4, 'start'], [0, 28, 'middle'], [-14, 4, 'end']],  // label offset per camp
+    stars: [[40, 60], [96, 34], [150, 92], [204, 48], [352, 52], [380, 104], [318, 24], [60, 150], [170, 160]],
+  },
+  phone: {
+    vb: '0 0 400 120',
+    pts: [[16, 104], [70, 96], [104, 84], [150, 88], [190, 66], [232, 62], [292, 44], [330, 52], [384, 18]],
+    camps: [0, 2, 4, 6, 8],
+  },
+}
+
+const lengths = (pts) => {
+  const cum = [0]
+  for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]))
+  return cum
+}
+const pointAt = (pts, cum, f) => {
+  const d = Math.max(0, Math.min(1, f)) * cum[cum.length - 1]
+  let i = 1
+  while (i < cum.length - 1 && cum[i] < d) i++
+  const t = (d - cum[i - 1]) / (cum[i] - cum[i - 1] || 1)
+  return [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * t, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * t]
+}
+
+const usePhone = () => {
+  const q = '(max-width: 960px)'
+  const [on, setOn] = useState(() => typeof window !== 'undefined' && window.matchMedia(q).matches)
+  useEffect(() => {
+    const mq = window.matchMedia(q), f = () => setOn(mq.matches)
+    mq.addEventListener?.('change', f); return () => mq.removeEventListener?.('change', f)
+  }, [])
+  return on
+}
 
 const span = (it, now) => {
   const [from, to] = it.date.split('—').map(s => s.trim())
   return { from, to: to ? (/present|aujourd/i.test(to) ? now : to) : null }
 }
 
-const Prompt = ({ text, on }) => {
-  const [k, setK] = useState(0)
-  useEffect(() => {
-    if (!on) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setK(text.length); return }
-    let i = 0
-    const id = setInterval(() => { i += 1; setK(i); if (i >= text.length) clearInterval(id) }, 45)
-    return () => clearInterval(id)
-  }, [on, text])
-  return <>{text.slice(0, k)}{k < text.length && <span className="caret" />}</>
-}
+const Mountain = ({ geo, phone, pos, reached, names, years, onPick }) => {
+  const cum = lengths(geo.pts)
+  const trail = 'M' + geo.pts.map(p => p.join(' ')).join(' L')
+  const cx = useTransform(pos, f => pointAt(geo.pts, cum, f)[0])
+  const cy = useTransform(pos, f => pointAt(geo.pts, cum, f)[1])
+  const top = geo.pts[geo.pts.length - 1]
 
-// fires once when the row enters the band above 62% of the viewport
-const Watch = ({ i, onReach, children, className }) => {
-  const ref = useRef(null)
-  const hit = useInView(ref, { once: true, margin: '0px 0px -38% 0px' })
-  useEffect(() => { if (hit) onReach(i) }, [hit]) // eslint-disable-line react-hooks/exhaustive-deps
-  return <li ref={ref} className={className}>{children}</li>
+  return (
+    <svg className={`mt__svg${phone ? ' mt__svg--strip' : ''}`} viewBox={geo.vb} role="img" aria-label={names.join(' → ')}>
+      <defs>
+        <linearGradient id="mt-rock" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" className="mt__rock-hi" /><stop offset="1" className="mt__rock-lo" />
+        </linearGradient>
+      </defs>
+      {phone ? (
+        // elevation profile: the trail itself, filled below
+        <path d={`${trail} L384 120 L16 120Z`} fill="url(#mt-rock)" className="mt__mass" />
+      ) : (<>
+        {geo.stars.map(([x, y], i) => <circle key={i} cx={x} cy={y} r={i % 3 ? 1.1 : 1.6} className="mt__star" style={{ animationDelay: `${i * 0.6}s` }} />)}
+        <path d="M0 500 L70 318 L128 372 L196 236 L250 300 L318 188 L400 290 L400 500Z" className="mt__ridge" />
+        <path d="M0 500 L150 286 L196 326 L266 104 L300 166 L330 140 L400 318 L400 500Z" fill="url(#mt-rock)" className="mt__mass" />
+        <path d="M266 104 L244 164 L258 154 L268 172 L283 150 L292 160Z" className="mt__snow" />
+        <path d="M330 140 L318 166 L328 160 L338 168Z" className="mt__snow" />
+      </>)}
+
+      <path d={trail} className="mt__trail" />
+      <motion.path d={trail} className="mt__walked" style={{ pathLength: pos }} />
+
+      {/* summit flag */}
+      <g transform={`translate(${top[0]} ${top[1]})`} className={`mt__flag${reached >= geo.camps.length - 1 ? ' is-up' : ''}`}>
+        <path d={phone ? 'M0 0 V-14' : 'M0 0 V-30'} className="mt__pole" />
+        <path d={phone ? 'M0 -14 L12 -10 L0 -6Z' : 'M0 -30 L22 -23 L0 -16Z'} className="mt__cloth" />
+      </g>
+
+      {geo.camps.map((v, i) => {
+        const [x, y] = geo.pts[v]
+        const [dx, dy, anchor] = geo.lab?.[i] || [14, 4, 'start']
+        return (
+          <g key={i} className={`mt__camp${i <= reached ? ' is-on' : ''}${i === reached ? ' is-cur' : ''}`} onClick={() => onPick(i)} role="button" tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPick(i) } }} aria-label={`${names[i]} · ${years[i]}`}>
+            <circle cx={x} cy={y} r={phone ? 10 : 16} className="mt__hit" />
+            <circle cx={x} cy={y} r={phone ? 4 : 6.5} className="mt__dot" />
+            {!phone && (
+              <text x={x + dx} y={y + dy} textAnchor={anchor} className="mt__label">
+                <tspan className="mt__name">{names[i]}</tspan><tspan dx="6" className="mt__yr">{years[i]}</tspan>
+              </text>
+            )}
+          </g>
+        )
+      })}
+
+      {/* the climber */}
+      <motion.g style={{ x: cx, y: cy }} className="mt__me" aria-hidden="true">
+        <circle r={phone ? 9 : 13} className="mt__halo" />
+        <circle r={phone ? 5 : 7} className="mt__body" />
+      </motion.g>
+    </svg>
+  )
 }
 
 export const Experience = () => {
   const { t } = useTranslation()
-  const items = t('exp.items', { returnObjects: true })
+  const all = t('exp.items', { returnObjects: true })
   const ui = t('exp.ui', { returnObjects: true })
-  const term = useRef(null)
-  const seen = useInView(term, { once: true, margin: '-15% 0px' })
-  const [reached, setReached] = useState(-1)
-  const [open, setOpen] = useState(() => new Set())
+  const items = ORDER.map(i => ({ ...all[i], tech: EXP_TECH[i] || [] }))
+  const phone = usePhone()
+  const geo = phone ? GEO.phone : GEO.desk
+  const list = useRef(null)
+  const [reached, setReached] = useState(0)
 
-  // a commit opens when it crosses 62% of the viewport, and stays open (no layout jumps above you)
-  const reach = (i) => {
-    setReached(r => Math.max(r, i))
-    setOpen(o => (o.has(i) ? o : new Set(o).add(i)))
+  // camp positions along the trail (0 → 1), so the climber stops exactly at each camp
+  const cum = lengths(geo.pts)
+  const campF = geo.camps.map(v => cum[v] / cum[cum.length - 1])
+
+  const raw = useMotionValue(0)
+  const pos = useSpring(raw, SPRING)
+  const { scrollY } = useScroll()
+
+  // card k is "reached" once its top passes 55% of the viewport;
+  // while reading it, the climber walks the trail from its camp towards the next one
+  const update = () => {
+    const cards = list.current?.querySelectorAll('.mt__card')
+    if (!cards?.length) return
+    const line = window.innerHeight * 0.55
+    let k = 0, f = 0
+    cards.forEach((c, i) => {
+      const r = c.getBoundingClientRect()
+      if (r.top < line) { k = i; f = Math.max(0, Math.min(1, (line - r.top) / Math.max(1, r.height))) }
+    })
+    const next = Math.min(k + 1, campF.length - 1)
+    raw.set(k === campF.length - 1 ? campF[k] : campF[k] + (campF[next] - campF[k]) * f)
+    setReached(k)
+  }
+  useMotionValueEvent(scrollY, 'change', update)
+  useEffect(() => { update() }, [phone]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const goTo = (i) => {
+    const card = list.current?.querySelectorAll('.mt__card')[i]
+    if (!card) return
+    const y = card.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.3
+    window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
   }
 
-  const toggle = (i) => setOpen(o => { const n = new Set(o); n.has(i) ? n.delete(i) : n.add(i); return n })
+  const kicker = (i) => KIND[i] === 'base' ? ui.base : KIND[i] === 'summit' ? ui.summit : KIND[i] === 'side' ? ui.side : t('exp.ui.camp', { n: i + 1 })
+  const short = (c) => c.replace(' Technology', '').replace(' Maroc', '')
 
   return (
     <section className="section" id="experience">
       <div className="wrap">
-        <Head n="02" kicker={t('exp.kicker')} title={t('exp.title')} />
-        <Reveal>
-          <div className="gx" ref={term}>
-            <div className="gx__bar"><span className="gx__dots" aria-hidden="true"><i /><i /><i /></span><span className="gx__title mono">~/career — zsh</span></div>
-            <div className="gx__screen">
-              <p className="gx__prompt mono"><span className="gx__ps">~/career $</span> <Prompt text="git log --graph --all" on={seen} /></p>
-
-              <ol className="gx__log">
-                {items.map((it, i) => {
-                  const s = span(it, ui.now)
-                  const lane = LANE[i]
-                  const isOpen = open.has(i)
-                  const past = i <= reached
-                  const tech = EXP_TECH[i] || []
-                  return (
-                    <Watch key={it.company} i={i} onReach={reach} className={`gx__row gx__row--l${lane}${past ? ' is-past' : ''}${isOpen ? ' is-open' : ''}${i === 0 ? ' is-first' : ''}${i === items.length - 1 ? ' is-last' : ''}`}>
-                      <div className="gx__graph" aria-hidden="true">
-                        <span className="gx__main" />
-                        {lane === 2 && (<>
-                          <svg className="gx__merge" viewBox="0 0 48 22" preserveAspectRatio="none"><path d="M34 22 C34 9, 12 12, 12 0" /></svg>
-                          <span className="gx__l2" />
-                          <svg className="gx__fork" viewBox="0 0 48 26" preserveAspectRatio="none"><path d="M34 0 C34 14, 12 12, 12 26" /></svg>
-                        </>)}
-                        <span className="gx__node" />
-                      </div>
-
-                      <div className="gx__commit">
-                        <button type="button" className="gx__head" aria-expanded={isOpen} onClick={() => toggle(i)}>
-                          <span className="gx__line1">
-                            <span className="gx__hash mono">commit {HASH[i]}</span>
-                            <span className="gx__refs">
-                              {i === 0 && <em className="gx__ref gx__ref--head">HEAD → main</em>}
-                              <em className={`gx__ref${lane === 2 ? ' gx__ref--br' : ''}`}>{REF[i]}</em>
-                            </span>
-                            <span className="gx__date mono">{s.from}{s.to ? ` → ${s.to}` : ''}</span>
-                          </span>
-                          <span className="gx__msg">{it.role}</span>
-                          <span className="gx__co">{it.company} <span className="gx__ty">· {it.type}</span></span>
-                          <span className="gx__chev"><Icon name="chev" size={16} stroke={2.2} /></span>
-                        </button>
-
-                        <AnimatePresence initial={false}>
-                          {isOpen && (
-                            <motion.div className="gx__body" key="body" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={SPRING}>
-                              <ul className="gx__diff">
-                                {it.bullets.map((b, j) => (
-                                  <motion.li key={b} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ ...SPRING, delay: 0.1 + j * 0.08 }}>
-                                    <span className="gx__plus" aria-hidden="true">+</span><span>{b}</span>
-                                  </motion.li>
-                                ))}
-                              </ul>
-                              <p className="gx__stat mono">
-                                <span className="gx__add">{t('exp.ui.changes', { count: it.bullets.length })}</span>
-                                <span> · {t('exp.ui.tools', { count: tech.length })}</span>
-                                <span className="gx__merged"> · {i === 0 ? ui.head : lane === 2 && i === 1 ? ui.parallel : ui.merged}</span>
-                              </p>
-                              <div className="gx__tech">{tech.map(x => <span key={x} className="gx__file mono">{x}</span>)}</div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    </Watch>
-                  )
-                })}
-              </ol>
-              <p className="gx__prompt gx__prompt--end mono"><span className="gx__ps">~/career $</span> <span className="gx__next">{ui.next}</span><span className="caret" /></p>
+        <Head n="02" kicker={t('exp.kicker')} title={t('exp.title')} sub={ui.sub} />
+        <div className="mt">
+          <div className="mt__side">
+            <div className="mt__frame">
+              <Mountain geo={geo} phone={phone} pos={pos} reached={reached} onPick={goTo}
+                names={items.map(it => short(it.company))}
+                years={items.map((it, i) => (KIND[i] === 'summit' ? ui.now : (it.date.match(/\d{4}/) || [''])[0]))} />
+              {phone && <p className="mt__now"><b>{kicker(reached)}</b> · {items[reached].company}</p>}
             </div>
           </div>
-        </Reveal>
+
+          <ol className="mt__list" ref={list}>
+            {items.map((it, i) => {
+              const s = span(it, ui.now)
+              return (
+                <li key={it.company} className={`mt__card mt__card--${KIND[i]}${i <= reached ? ' is-on' : ''}${i === reached ? ' is-cur' : ''}`}>
+                  <Reveal className="card mt__inner">
+                    <span className="mt__kick"><i />{kicker(i)}<span className="mt__when mono">{s.from}{s.to ? ` → ${s.to}` : ''}</span></span>
+                    <h3 className="mt__co">{it.company}</h3>
+                    <p className="mt__role">{it.role} <span className="mt__ty">· {it.type}</span></p>
+                    <ul className="mt__bul">{it.bullets.map(b => <li key={b}>{b}</li>)}</ul>
+                    <div className="tags tags--sm">{it.tech.map(x => <span key={x} className="tag">{x}</span>)}</div>
+                  </Reveal>
+                </li>
+              )
+            })}
+          </ol>
+        </div>
       </div>
     </section>
   )

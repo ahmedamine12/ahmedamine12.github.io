@@ -257,14 +257,11 @@
     ],
     "ui": {
       "now": "Now",
-      "changes_one": "+{{count}} change",
-      "changes_other": "+{{count}} changes",
-      "tools_one": "{{count}} tool",
-      "tools_other": "{{count}} tools",
-      "head": "HEAD · still shipping",
-      "parallel": "open branch · in parallel",
-      "merged": "merged into main",
-      "next": "git commit -m \"your project?\""
+      "sub": "From my first internship at base camp to the summit I'm on today. Scroll to climb with me.",
+      "base": "Base camp",
+      "camp": "Camp {{n}}",
+      "side": "Side peak · in parallel",
+      "summit": "Summit · today"
     }
   },
   "work": {
