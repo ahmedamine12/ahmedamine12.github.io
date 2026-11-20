@@ -603,5 +603,124 @@
     "hint_pc": "touchez pour la retourner · lancez-la, elle revient toujours",
     "qr": "scannez pour garder mon contact",
     "qr_small": "touchez pour réduire"
+  },
+  "pdemo": {
+    "lymit": {
+      "steps": [
+        "Configurer",
+        "Vérifier",
+        "Payer"
+      ],
+      "product": "Flacon de recherche",
+      "dosage": "Dosage",
+      "stock": "en stock",
+      "lot": "Lot LL-2611",
+      "cert": "Certificat d'analyse",
+      "purity": "Pureté 99,2 %",
+      "verified": "Vérifié pour ce lot",
+      "cart": "Votre commande",
+      "coupon": "Code promo",
+      "code": "WELCOME10",
+      "discount": "Remise −10 %",
+      "total": "Total",
+      "paid": "Paiement confirmé · Commande n° 1042",
+      "email": "E-mail de confirmation envoyé"
+    },
+    "browsemate": {
+      "steps": [
+        "Lire",
+        "Demander",
+        "Répondre"
+      ],
+      "url": "blog.exemple.com/strategie-digitale-2026",
+      "article": "Stratégie digitale : ce qui change en 2026",
+      "reading": "Lecture de la page…",
+      "words": "1 240 mots lus",
+      "q": "Résume cet article en 3 points",
+      "points": [
+        "Le mobile génère désormais l'essentiel du trafic",
+        "L'IA arrive dans le service client",
+        "Moins de pub, plus de contenu utile"
+      ],
+      "by": "Réponse de Gemini · 1,2 s",
+      "models": "Fonctionne avec OpenAI, Gemini, Groq…"
+    },
+    "nav": {
+      "steps": [
+        "Localiser",
+        "Calculer",
+        "Comparer"
+      ],
+      "from": "Maârif",
+      "to": "Aïn Diab",
+      "a": "Moteur A · Dijkstra",
+      "b": "Moteur B · A*",
+      "km": "km",
+      "min": "min",
+      "best": "Le plus rapide",
+      "query": "Requête PostGIS 38 ms · mise en cache Redis"
+    },
+    "resto": {
+      "steps": [
+        "Créer",
+        "Commander",
+        "Livrer"
+      ],
+      "url": "dar-tajine.resto.app",
+      "name": "Dar Tajine",
+      "tag": "Cuisine marocaine · Casablanca",
+      "menu": [
+        [
+          "Tajine au poulet",
+          "85"
+        ],
+        [
+          "Couscous royal",
+          "110"
+        ],
+        [
+          "Thé à la menthe",
+          "20"
+        ]
+      ],
+      "cart": "Commande",
+      "pay": "Payer avec Square",
+      "paid": "Payé avec Square",
+      "track": [
+        "Envoyée à Uber Eats",
+        "Livreur assigné · Karim",
+        "Livrée · 32 min"
+      ],
+      "live": "Site en ligne"
+    },
+    "home": {
+      "steps": [
+        "Réserver",
+        "Affecter",
+        "Suivre"
+      ],
+      "job": "Plomberie · fuite sous l'évier",
+      "when": "Jeu 10:00 · Maârif",
+      "days": [
+        "Lun",
+        "Mar",
+        "Mer",
+        "Jeu",
+        "Ven"
+      ],
+      "techs": [
+        "Youssef",
+        "Salma",
+        "Omar"
+      ],
+      "free": "Créneaux libres",
+      "assigned": "Affecté à Salma",
+      "flow": [
+        "Affecté",
+        "En route · 12 min",
+        "Sur place",
+        "Clôturé · signé par le client"
+      ]
+    }
   }
 }

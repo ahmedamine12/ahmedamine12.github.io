@@ -603,5 +603,124 @@
     "hint_pc": "tap to turn it over · drag it around, it always comes back",
     "qr": "scan to save my contact",
     "qr_small": "tap to shrink"
+  },
+  "pdemo": {
+    "lymit": {
+      "steps": [
+        "Configure",
+        "Verify",
+        "Checkout"
+      ],
+      "product": "Research vial",
+      "dosage": "Dosage",
+      "stock": "in stock",
+      "lot": "Lot LL-2611",
+      "cert": "Certificate of analysis",
+      "purity": "Purity 99.2%",
+      "verified": "Verified for this batch",
+      "cart": "Your order",
+      "coupon": "Coupon",
+      "code": "WELCOME10",
+      "discount": "Discount −10%",
+      "total": "Total",
+      "paid": "Payment confirmed · Order #1042",
+      "email": "Confirmation email sent"
+    },
+    "browsemate": {
+      "steps": [
+        "Read",
+        "Ask",
+        "Answer"
+      ],
+      "url": "blog.example.com/digital-strategy-2026",
+      "article": "Digital strategy: what changes in 2026",
+      "reading": "Reading the page…",
+      "words": "1,240 words read",
+      "q": "Summarize this article in 3 points",
+      "points": [
+        "Mobile now drives most traffic",
+        "AI is moving into customer service",
+        "Fewer ads, more useful content"
+      ],
+      "by": "Answered by Gemini · 1.2 s",
+      "models": "Works with OpenAI, Gemini, Groq…"
+    },
+    "nav": {
+      "steps": [
+        "Locate",
+        "Route",
+        "Compare"
+      ],
+      "from": "Maarif",
+      "to": "Ain Diab",
+      "a": "Engine A · Dijkstra",
+      "b": "Engine B · A*",
+      "km": "km",
+      "min": "min",
+      "best": "Fastest",
+      "query": "PostGIS query 38 ms · cached in Redis"
+    },
+    "resto": {
+      "steps": [
+        "Create",
+        "Order",
+        "Deliver"
+      ],
+      "url": "dar-tajine.resto.app",
+      "name": "Dar Tajine",
+      "tag": "Moroccan kitchen · Casablanca",
+      "menu": [
+        [
+          "Chicken tajine",
+          "85"
+        ],
+        [
+          "Royal couscous",
+          "110"
+        ],
+        [
+          "Mint tea",
+          "20"
+        ]
+      ],
+      "cart": "Order",
+      "pay": "Pay with Square",
+      "paid": "Paid with Square",
+      "track": [
+        "Sent to Uber Eats",
+        "Courier assigned · Karim",
+        "Delivered · 32 min"
+      ],
+      "live": "Site live"
+    },
+    "home": {
+      "steps": [
+        "Book",
+        "Assign",
+        "Follow"
+      ],
+      "job": "Plumbing · leak under the sink",
+      "when": "Thu 10:00 · Maarif",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri"
+      ],
+      "techs": [
+        "Youssef",
+        "Salma",
+        "Omar"
+      ],
+      "free": "Free slots",
+      "assigned": "Assigned to Salma",
+      "flow": [
+        "Assigned",
+        "On the way · 12 min",
+        "On site",
+        "Closed · signed by the customer"
+      ]
+    }
   }
 }

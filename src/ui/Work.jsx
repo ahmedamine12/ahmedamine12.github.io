@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { Head, Icon, Reveal, SHEET, SPRING, Tilt, project, useFinePointer } from './kit'
 import { WORK } from '../data'
 import { IdpDemo } from './IdpDemo'
+import { ProjectDemo, hasProjectDemo } from './ProjectDemos'
 import { Archive } from './Archive'
 
 const Badge = ({ w, t }) => w.badge ? <span className="badge">{t(`work.${w.badge}`)}</span> : null
@@ -75,6 +76,10 @@ const Sheet = ({ w, onClose, t }) => {
             {w.id === 'idp' && (<>
               <h4 className="mini-h sheet__demo-h"><span className="live-dot" />{t('demo.kicker')} · {t('demo.title')}</h4>
               <IdpDemo embedded />
+            </>)}
+            {hasProjectDemo(w.id) && (<>
+              <h4 className="mini-h sheet__demo-h"><span className="live-dot" />{t('demo.kicker')} · {it.title}</h4>
+              <ProjectDemo id={w.id} />
             </>)}
             <div className="sheet__cols">
               <div>
